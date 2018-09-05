@@ -1,0 +1,6 @@
+Integrity Constraints:
+  Data Type Constraint: constraint on data type for data item
+  Referential Constraint: requiring every data item of one table
+                          be related to data item of another
+  Unique/Key Constraint: uniqueness of item value
+  

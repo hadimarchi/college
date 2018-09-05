@@ -1,0 +1,41 @@
+# 09/05/2018
+
+Lean:
+  Eliminate Waste:
+    Types of Waste:
+      - Building wrong feature or product
+      - Mismanaging the backlog
+      - Extraneous cognitive load
+      - Psychological distress
+
+Kanban:
+  Visualize workflow:
+    - shows true status of project
+    - Balance demand
+    - spot bottlenecks
+  Minimize work in progres:
+    - When requirements change, any WIP may be abandoned
+  Pull Model:
+    - Developers pull work instead of previous steps pushing work to them
+
+  How?:
+    Kanban Board:
+      - Idea pool
+      - Feature preparation
+        - Discared feature
+      - Feature selected
+      - User Stories
+      - Feature Acceptance
+      - Deployment
+      - Delivered
+
+
+
+Don't Make Me Think (A book):
+  Usability Consultant:
+    - evaluates interfaces
+    - determines where users will get confused
+
+  Rarity:
+    - making interfaces usable is everyones responsibility
+      - Agile way

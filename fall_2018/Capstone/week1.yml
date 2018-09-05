@@ -1,0 +1,133 @@
+Date: 08/31/2018
+
+Algorithm for HW1:
+    "algorithm quicksort(A, lo, hi) is
+      if lo < hi then
+        p := partition(A, lo, hi)" # split list into halves. bottom less than A[hi], top greater or equal
+        "quicksort(A, lo, p – 1)" # recurse on bottom half
+        "quicksort(A, p + 1, hi)" # recurse on top half
+                                # no return, algorithm is inplace on a reference to A
+    "algorithm partition(A, lo, hi) is
+      pivot := A[hi]
+      i := lo - 1
+      for j := lo to hi - 1 do
+        if A[j] < pivot then
+        i := i + 1
+        swap A[i] with A[j]
+      if A[hi] < A[i + 1] then
+        swap A[i + 1] with A[hi]
+      return i + 1"
+
+
+Incremental Development:
+  Issues:
+    - Things might be rushed to meet next increment deadline
+    - Time must be devoted to refactoring
+    - Pressure to produce production versions of increments
+      - Creates a  support issue while developing new increment
+      - Overhead from delivering an increment too often
+    - Need to keep documentation up-to-date
+
+
+Boehm's Spiral Model:
+  - Process is represented as spiral instead of steps
+  - In the middle of plan-based/agile scale
+  Benefits and Issues:
+    - Specific objectives for each phase are identified
+    - Risks are assessed and plans made to reduce key Risks
+    - Can use any process in development phase
+    - Forces planning and review
+  Truths:
+    - Rarely used for Development
+    - Helped spawn iterative processes used today
+
+
+Growth of Agile Methods:
+  - Based on previous iterative approaches
+  - Respond quickly to changing requirements
+  - Focus on code instead of design
+
+  Agile Manifesto:
+    - Individuals and iteractive OVER process and tools
+    - Working software OVER comprehensive documentation
+    - Customer collaboration OVER contract negotiation
+    - Responding to change OVER following a plans
+
+  Principles:
+    - Customer involvement
+    - Incremental delivery
+    - People not process: the skills of the development team should be exploited
+    - Embrace change: expect requirement changes and design process to accommodate
+    - Maintain simplicity: only develop what is necessary
+
+  Problems:
+    - Hard to keep stakeholders involved
+    - Prioritizing changes is difficult with multiple stakeholders
+    - Maintaining simplicity requires extra work (which stakeholders won't really see (or appreciate))
+    - Difficult to hire a company to create software for you. You don't have requirements early so no fixed-cost contracts.
+      - However with waterfall initial plan/requirements/time projections were often wrong, sooo...
+    - Difficult to scale to large or VERY large software projects
+
+
+Extreme Programming (XP):
+  - Full time stakeholder engagement with team
+    - Reduces waiting to hear back from them
+  - Pair Programming and collective ownership
+    - Pairs are switched so all teams members work with each other and all parts of code
+    - Studies suggest pair productivity
+    - Informal code review process
+  - Change supported through small & frequent system releases
+    - New versions may be built several times per day
+    - All tests must pass
+  - Maintain simplicity through constant refactoring of code
+
+  XP Practices:
+    - Incremental planning
+    - Small releases
+    - Simple design
+      - do the minimum for current requirements
+      - YAGNI: Ya ain't gonna need it
+    - Test-first development (Test Driven Development (TDD))
+    - Refactoring
+    - Pair Programming
+    - Collective ownership: developers work in all ares of the system and all developers
+                            take responsibility for all the code.
+    - Continuous Integration: when a new features is completed it is integrated into the whole system
+    - Sustainable Pace: large amounts of overtime is not acceptable as that usually reduces code quality
+    - On-site Customer: a stakeholder should be available full-time
+
+Scrum:
+  - Agile method focused on managing iterative Development
+  - Three phases
+      - Initial: establish general objectives
+      - Sprint: fixed length, 2-4 weeks, repeat until completed
+      - Wrap-up: Documentation, release, lessons learned, etc
+
+  Scrum Master:
+    - Arranges daily meetings (or standups) and keeps things moving
+    - Each team member:
+      - Describes their progress since last meeting
+      - Describes new problems discovered
+      - States what they plan to do that day
+    - Tracks the backlog of work to be done
+    - Records decisions made
+
+  Benefits:
+    - Project broken into a set of manageable and understandable pieces
+    - Unstable requirements do not hold up progress
+    - Improved team communication
+
+  Scaling to Larger Systems:
+    - Will need to do more up-front design and sys documentation
+    - Cross-team comm methods must be designed and used
+    - Continuous integration is harder
+
+Lean:
+  Lean Principles:
+    - Eliminate waste
+    - Amplify Learning: iterations allow us to learn more for next iteration
+    - Decide as late as possible: make decisions based on facts instead of assumptions
+    - Deliver as fast as possible
+    - Empower the team
+    - Build integrity in
+    - See the whole
