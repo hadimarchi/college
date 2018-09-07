@@ -39,3 +39,10 @@ Don't Make Me Think (A book):
   Rarity:
     - making interfaces usable is everyones responsibility
       - Agile way
+
+  How to not Make Him Think:
+    - Omit needless words
+      - Nobody will read them anyway
+      - Krug's Third Law of Usability
+        - get rid of half of words on each page, then get rid of half of what's left
+    

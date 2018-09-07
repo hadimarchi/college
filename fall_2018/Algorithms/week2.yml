@@ -1,0 +1,26 @@
+Date: 09/05/2018
+
+Summations:
+  sum(i) from i=1 to i=n = n(n+1)/2 ~= n^2/2
+  sum(i^2) from i=1 to i=n ~= n^3/3
+  sum(i) from i=l to i=u = sum(i)1-u - sum(i)1-l
+  sum(a^i) from 0 to n = 1 + a + a^2 ... + a^n = (a^n+1 -1)/(a-1)
+    - sum(10^i) = (10^n+1 -1)/(10-1)
+  sum(i*2i) from i=1 to i=n = (n-1)(2^n+1) + 2
+  sum(1/i) from 0 to n does not converge
+    - approximately ln(n) + y(oiler's constant, approx 0.5772)
+Combinatorics:
+  permutations of 1 - n = n!
+  nCk = n!/((n-k)! * k!)
+  number subsets of set N of size n = 2^n
+  sum(nCk) from k=0 to k=n = 2^n
+  sum(1) from i=l to i=u = u-l+1
+
+Analysis:
+  - Choose way of measuring input size
+  - Choose basic operation
+  - Does num of basic ops depend only on the size of input?
+    - if it depends on property of input, need best/worst case
+    - otherwise idea of input may need to be expande
+  - Set up a summation
+  - Evaluate summation
