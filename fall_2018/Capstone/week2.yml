@@ -45,4 +45,66 @@ Don't Make Me Think (A book):
       - Nobody will read them anyway
       - Krug's Third Law of Usability
         - get rid of half of words on each page, then get rid of half of what's left
-    
+
+
+# 09/07/2018
+Don't Make Me Think:
+  Key Messages:
+    - A user should be able to 'get' the interface without thinking about it
+    - Websites are not read fully, they are scanned
+    - Users prefer many mindless clicks to few thought required clicks
+      - Mindless choices = good!
+    - Omit needless words
+      - Especially 'happy talk'
+        - Useless bulky welcoming introductory text
+      - Eliminate instructions by making everything self explanatory
+
+
+  Designing Navigation:
+    Finding:
+      - Ask First (search-dominant)
+      - Browse First (link-dominant)
+    Hierarchy:
+      - Make visible
+        - tells us what the site contains
+        - tells us how to use it
+        - gives user confidence
+    Persistent Navigation:
+      - Elements that appear on every page of site
+        - Safety of consistency = less panicked thinking
+    Trust:
+      - Interface should inspire confidence and trust!
+
+    Trunk Test:
+      - choose any page in site and print it
+      - hold at arms length
+      - as quickly as possible identify:
+        - site id
+        - page name
+        - Sections (primary navigation)
+        - Local navigation
+        - 'You are here' indicators
+        - Search
+
+    Theory of Web Design:
+      What does/could a home page need?:
+        - Site identity and mission(as in goal of page)
+        - Site hierarchy
+        - Search
+        - Teases
+        - Content promos
+        - Feature promos
+        - Timely content - helps users return more often
+        - Deals
+        - Shortcuts (10 mindless clicks ok unless you need to do it several times/day)
+        - Registration (register, sign in, or you are signed in)
+      Abstract homepage objectives:
+        - Show me what I'm looking for
+        - Show me what might be interesting
+        - Show me where to start
+        - Establish credibility and trust
+    Usability:
+      - Arguing about it is (usually) a waste of time
+        Bad: Do people like pulldown menus?
+        Good: Does this pulldown for this list on this page for this site
+              for users that will likely use the site work well?
