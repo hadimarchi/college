@@ -87,6 +87,11 @@ TEST_CASE("Character list is sorted"){
   REQUIRE(is_sorted(string.begin(), string.end()));
 }
 
+TEST_CASE("Sorted list is still sorted"){
+  vector<int> sorted = {1, 2, 3, 4, 5, 6};
+  do_quicksort(sorted);
+  REQUIRE(is_sorted(sorted.begin(), sorted.end()));
+}
 TEST_CASE("Random list is sorted"){
   auto randomly_generated = generate_random_list_of_integers();
 

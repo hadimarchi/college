@@ -10,17 +10,19 @@
 \pagenumbering{arabic}
 \section{Section 1.3}
   \subsection{Problem 1}
-    \subsubsection{b. Is this algorithm stable?}
+    \subsubsection{b.}
+      Is this algorithm stable?
       \paragraph{Answer:}
         No. As you can see in the innermost block of code, if A[i] >= A[j] (aka not less than)
         Count[i] is incremented, meaning A[i] will be moved ahead of A[j] when these elements are equal.
         This reverses their relative order, making the algorithm unstable.
-    \subsection{c. Is it in place?}
+    \subsection{c.}
+      Is it in place?
       \paragraph{Answer:}
         No. A new array (S) is returned from the function, thus the algorithm violates the definition of in-place.
 \section{Section 1.4}
   \subsection{Problem 3}
-    \subsubsection{Create a simple algorithm for the string-matching problem}
+        Create a simple algorithm for the string-matching problem
       \paragraph{Answer:}
         Create a list of all the substrings in your string that are of the same length as your pattern.
         Simultaneously create a list of integers that denote the index at which each substring begins in the parent
@@ -32,8 +34,9 @@
          Gaussian elimination, the classic algorithm for solving systems of n linear
          equations in n unknowns, requires about $1/3(n^3)$ multiplications, which is the
          algorithm’s basic operation.
-     \subsubsection{a. How much longer should you expect Gaussian elimination to work on a
-                    system of 1000 equations versus a system of 500 equations}
+     \subsubsection{a.}
+          How much longer should you expect Gaussian elimination to work on a
+          system of 1000 equations versus a system of 500 equations
         \paragraph{Answer:}
           \begin{align}
             G(500)=1/3(500^3)=41666666.6667 \\
@@ -41,6 +44,16 @@
             G(1000)\div G(500) = 8
           \end{align}
           I should expect it to take eight times longer on a system of 1000 equations versus a system of 500 equations.
+    \subsubsection{b.}
+        You are considering buying a computer that is 1000 times faster than the
+        one you currently have. By what factor will the faster computer increase
+        the sizes of systems solvable in the same amount of time as on the old
+        computer?
+      \paragraph{Answer:}
+        If the computer is 1000 times faster than our equation becomes $10^{-3} * 1/3n^3$. Suppose an input
+        of size $n$ had a time $t$ before the upgrade. The new time will be $t/1000$. If we plug $10n$ into our
+        new equation we produce $1/1000 * 1/3(10n)^3$ or $1/1000 * 10^3 * t$ or $t$. From this we see that this
+        new computer allows us to handle inputs increased by a factor of 10 at the same speed of our older computer.
 
 
   \subsection{Problem 8}
@@ -86,10 +99,24 @@
     \subsubsection{d. $\log_{2}^2(n) \ and \ \log_{2}(n^2)$}
       \paragraph{Answer:}
         Higher as $\log_{2}^2(n) = (\log_{2}(n))^2 \ and \ \log_{2}(n^2) = 2\log_{2}(n)$ meaning the first is quadratic relative to the second when placed on a logarithmic scale.
-    \subsubsection{e. $2^n \ and \ 2^n$}
-    \subsubsection{f. $(n − 1)! \ and \ n!$}
+    \subsubsection{e. $2^{n-1} \ and \ 2^n$}
+      \paragraph{Answer:}
+        Same, as $2^{n-1}$ can be expressed as $2^n/2$, meaning it differs from $2^n$ by the constant of 1/2. We can ignore constants when considering the order of growth.
+    \subsubsection{f. $(n-1)! \ and \ n!$}
+      \paragraph{Answer:}
+        Same, as $(n-1)!$ can be expressed as $n!/n$ meaning in both functions the highest order term is $n!$. Thus they have the same order of growth.
 \section{Section 2.2}
   \subsection{Problem 2}
+  Use the informal definitions of O, $\Theta$, and $\Omega$ to determine whether the following assertions are true or false
+  \subsubsection{a. $n(n + 1)/2 \in O(n^3 )$}
+    \paragraph{Answer:}
+      True as $n(n+1)/2$ is on the order of $n^2$, thus it is certainly bounded above by $Cn^3$ where C is a constant.
+  \subsubsection{b. $n(n + 1)/2 \in O(n^2 )$}
+    \paragraph{Answer:}
+      True as $n(n+1)/2 = n^2/2 + n/2 <= n^2/2 + n^2/2 = n^2 < 2n^2 for n>0$, meaning it is bounded above by $Cn^2$ where C is a constant.
+  \subsubsection{c. $n(n + 1)/2 \in \Theta(n^3 )$}
+    \paragraph{Answer:}
+      False, as $n(n+1)/2$ of order 2 and $n^3$ of order 3. Thus there is no $n_{1}$ such that 
 \section{Section 2.3}
   \subsection{Problem 1}
   \subsection{Problem 5}

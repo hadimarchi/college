@@ -55,7 +55,7 @@ srt::un_int srt::partition(std::vector<T> &target_vec, un_int lower_index, un_in
       std::swap(target_vec[split_index], target_vec[i]);
       }
   }
-  split_index = split_index + 1;//std::min(split_index + 1, upper_index);
+  split_index = split_index + 1;
   if (target_vec[upper_index] < target_vec[split_index]){
     std::swap(target_vec[split_index], target_vec[upper_index]);}
 
