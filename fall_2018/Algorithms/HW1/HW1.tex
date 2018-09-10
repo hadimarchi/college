@@ -1,0 +1,64 @@
+\documentclass{article}
+\title{Analysis of Algorithms: Assignment 1}
+\author{Hal DiMarchi}
+\usepackage{listings}
+\usepackage{amsmath}
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\pagenumbering{arabic}
+\section{Section 1.3}
+  \subsection{Problem 1}
+    \subsubsection{b. Is this algorithm stable?}
+      \paragraph{Answer:}
+        No. As you can see in the innermost block of code, if A[i] >= A[j] (aka not less than)
+        Count[i] is incremented, meaning A[i] will be moved ahead of A[j] when these elements are equal.
+        This reverses their relative order, making the algorithm unstable.
+    \subsection{c. Is it in place?}
+      \paragraph{Answer:}
+        No. A new array (S) is returned from the function, thus the algorithm violates the definition of in-place.
+\section{Section 1.4}
+  \subsection{Problem 3}
+    \subsubsection{Create a simple algorithm for the string-matching problem}
+      \paragraph{Answer:}
+        Create a list of all the substrings in your string that are of the same length as your pattern.
+        Simultaneously create a list of integers that denote the index at which each substring begins in the parent
+        string.
+        Compare your pattern to each of these substrings. If the substring and the pattern match, return, or push, the corresponding
+        starting index of the substring.
+\section{Section 2.1}
+  \subsection{Problem 7}
+         Gaussian elimination, the classic algorithm for solving systems of n linear
+         equations in n unknowns, requires about $1/3(n^3)$ multiplications, which is the
+         algorithm’s basic operation.
+     \subsubsection{a. How much longer should you expect Gaussian elimination to work on a
+                    system of 1000 equations versus a system of 500 equations}
+        \paragraph{Answer:}
+          \begin{align}
+            G(500)=1/3(500^3)=41666666.6667 \\
+            G(1000)=1/3(1000^3)=333333333.333 \\
+            G(1000)\div G(500) = 8
+          \end{align}
+          I should expect it to take eight times longer on a system of 1000 equations versus a system of 500 equations.
+
+
+  \subsection{Problem 8}
+        For each of the following functions, indicate how much the function’s value
+        will change if its argument is increased fourfold.
+    \subsubsection{a. $\log_{2}(n)$}
+          \paragraph{Answer:}
+              $\log_{2}(4n) = log_{2}(4) + log_2(n) = 2 + log_2(n)$ \\
+              The value will increase by 2.
+    \subsubsection{b. $\sqrt{n}$}
+  \subsection{Problem 9}
+\section{Section 2.2}
+  \subsection{Problem 2}
+\section{Section 2.3}
+  \subsection{Problem 1}
+  \subsection{Problem 5}
+\section{Section 2.4}
+  \subsection{Problem 1}
+  \subsection{Problem 4}
+
+\end{document}
