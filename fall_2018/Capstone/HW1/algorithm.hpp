@@ -67,6 +67,5 @@ srt::un_int srt::partition(std::vector<T> &target_vec, un_int lower_index, un_in
 template <typename T>
 void srt::do_quicksort(std::vector<T> &vec_to_sort){
   srt::quicksort(vec_to_sort, un_int(0), std::max(un_int(vec_to_sort.size()), un_int(1))-1);
-
 }
 #endif
