@@ -1,1 +1,19 @@
 Date: 09/10/2018
+
+Date: 09/14/2018
+In Class Exercise:
+  Want To:
+    - Write software for online grocery shopping
+    Functional Requirements:
+      - Allows users to pay for groceries selected online
+      - Users can search by text for an item they want
+      - Users have a web interface for viewing and selecting groceries
+      - Put multiple groceries in their basket before checkout
+      - User can subscribe to certain groceries for recurring deliveries and automatic payment
+      - Each grocery item has button that will put item on a 'wishlist'
+      - Users can share their purchases on social media
+    Non-Functionl Requirements:
+      - The system will not use open source software
+      - The majority of users will be able to complete their shopping within 15 minutes
+        after their first three uses of the software.
+      - The system will be serverless

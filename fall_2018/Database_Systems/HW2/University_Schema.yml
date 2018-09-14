@@ -1,0 +1,66 @@
+University Schema:
+  Entities:
+    Department:
+      Attributes:
+        - Name (varchar, unique, Key)
+        - Code (number, unique, Key)
+        - Office Number (number)
+        - Office Phone Number (Phone Number Type - 10 digit number)
+        - College (varchar)
+    Student:
+      Attributes:
+        - Name(Composite) -> First(varchar), Middle(varchar), Last(varchar)
+        - SSN(SSN Type - 9 digit number, unique, Key)
+        - Student Number(number, unique, Key)
+        - Addresses(Composite)-> Current(Address Type (# street, town, state, zip)), Permanent(Address Type)
+        - Birthdate(Date type)
+        - Sex(Sex type - M, F, O(other/not given))
+        - Class (Class type - Freshman, Sophmore, Junior, Senior, Graduate)
+        - Degree Program(Degree type - B.A, B.S, M.A, M.S, PhD, etc...)
+        - Major (Department Name, Foreign Key)
+        - Minors (nullable, multivalue, Department Name, Foreign Key)
+    Course:
+        Attributes:
+          - Name (varchar)
+          - Number (number, unique, Key)
+          - Semester Hours(Number)
+          - Level (level type - 100, 200, 300, 400, 600)
+          - Description (varchar)
+    Section:
+        Attributes:
+          - Course (Course Number, Foreign Key)
+          - Number (number, Weak Key)
+          - Year (Year type - four digit number from school established date to 9999)
+          - Semester (Semester type - fall, winter, spring, summer)
+
+  Relationships:
+    Offering:
+      Relates: Department to Course
+        As: Offering Department to Offered Course
+      Cardinality: 1:N
+      Entity Storing: Course
+        As: Offering Department
+
+    Section of:
+      Relates: Course to Section
+        As: Course to Section
+      Cardinality: 1:N
+      Entity Storing: Section
+        As: Course
+      Identifying: Section
+
+    Majoring:
+      Relates: Department to Student
+        As: Major to Majoring in
+      Cardinality: 1:N
+      Entity Storing: Student
+        As: Major
+
+    Minoring:
+      Relates: Department to Student
+        As: Minor to Minoring In
+      Cardinality: M:N
+      Entity Storing: Student
+        As: Minors
+
+    Grade Report:
