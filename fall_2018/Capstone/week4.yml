@@ -1,0 +1,7 @@
+Date: 09/17/2018
+
+Exercise:
+  Non-functional requirement for fish identifier:
+    - Must identify fish species with 75% accuracy within 1 second of capture time.
+    - Software updates without interrupting current use.
+    - Must support 10 simultaneous fish identification processes

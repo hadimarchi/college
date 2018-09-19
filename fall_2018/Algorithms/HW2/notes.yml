@@ -1,0 +1,21 @@
+How:
+  - Generate all subsets (all bridge combinations)
+  - See which are possible (not crossing)
+  - highest toll is best
+  - can reduce size of search by backtracking and removing bridges that won't work
+  - Recursive
+    - 0123
+      - recurse on 012
+
+Recursive example:
+  n is number of possible bridges
+  vector<vector<int>> generateSubsets(int n){
+    if (n==0){ return {{}};}
+    auto subsets = generateSubsets(n-1);
+    auto returnVal = subsets;
+    for(auto v:subsets){
+      v.push_back(n-1);
+      returnVal.push_back(v);
+    }
+    return returnVal;
+  }
