@@ -1,0 +1,154 @@
+NO REMOVAL:
+TEST SUITES FOR FUNCION build
+Test Suite: function build - tiny examples
+took 2e-06 time
+    Test: No bridges - passed
+took 3e-06 time
+    Test: 1 bridge - passed
+took 3e-06 time
+    Test: 2 bridges, non-crossing - passed
+took 3e-06 time
+    Test: 2 bridges, common west city, N is best - passed
+took 3e-06 time
+    Test: 2 bridges, common west city, N is best (reordered) - passed
+took 3e-06 time
+    Test: 2 bridges, common west city, S is best - passed
+took 8e-06 time
+    Test: 2 bridges, common west city, S is best (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, common east city, N is best - passed
+took 3e-06 time
+    Test: 2 bridges, common east city, N is best (reordered) - passed
+took 3e-06 time
+    Test: 2 bridges, common east city, S is best - passed
+took 2e-06 time
+    Test: 2 bridges, common east city, S is best (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, identical - passed
+took 2e-06 time
+    Test: 2 bridges, same cities, different tolls (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, same cities, different tolls - passed
+took 2e-06 time
+    Test: 2 bridges, crossing, NW-SE is best - passed
+took 2e-06 time
+    Test: 2 bridges, crossing, NW-SE is best (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, crossing, SW-NE is best - passed
+took 1e-06 time
+    Test: 2 bridges, crossing, SW-NE is best (reordered) - passed
+Test Suite: function build - small examples
+took 4e-06 time
+    Test: Example #1 from assignment description - passed
+took 6e-06 time
+    Test: Example #2 from assignment description - passed
+took 6e-06 time
+    Test: 3 cities each side, not all joinable - passed
+took 1e-05 time
+    Test: 3 cities each side, all joinable - passed
+Test Suite: function build - medium examples
+took 4e-06 time
+    Test: Greedy fails - passed
+
+took 0.060854 time
+    Test: Greedy fails large - passed
+took 0.001674 time
+    Test: All bridges available #1 - passed
+took 0.001621 time
+    Test: All bridges available #2 - passed
+took 0.001769 time
+    Test: All bridges available #3 - passed
+took 0.003293 time
+    Test: Random #1 - passed
+took 0.002077 time
+    Test: Random #2 - passed
+took 0.001918 time
+    Test: Random #3 - passed
+took 0.000851 time
+    Test: One bridge crosses many #1 - passed
+took 0.00085 time
+    Test: One bridge crosses many #2 - passed
+
+All tests successful
+
+Press ENTER to quit
+real	0m0.381s
+user	0m0.316s
+sys	0m0.064s
+
+
+TEST SUITES FOR FUNCION build
+Test Suite: function build - tiny examples
+took 4e-06 time
+    Test: No bridges - passed
+took 3e-06 time
+    Test: 1 bridge - passed
+took 2e-06 time
+    Test: 2 bridges, non-crossing - passed
+took 2e-06 time
+    Test: 2 bridges, common west city, N is best - passed
+took 2e-06 time
+    Test: 2 bridges, common west city, N is best (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, common west city, S is best - passed
+took 2e-06 time
+    Test: 2 bridges, common west city, S is best (reordered) - passed
+took 3e-06 time
+    Test: 2 bridges, common east city, N is best - passed
+took 3e-06 time
+    Test: 2 bridges, common east city, N is best (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, common east city, S is best - passed
+took 3e-06 time
+    Test: 2 bridges, common east city, S is best (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, identical - passed
+took 2e-06 time
+    Test: 2 bridges, same cities, different tolls (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, same cities, different tolls - passed
+took 2e-06 time
+    Test: 2 bridges, crossing, NW-SE is best - passed
+took 3e-06 time
+    Test: 2 bridges, crossing, NW-SE is best (reordered) - passed
+took 2e-06 time
+    Test: 2 bridges, crossing, SW-NE is best - passed
+took 2e-06 time
+    Test: 2 bridges, crossing, SW-NE is best (reordered) - passed
+Test Suite: function build - small examples
+took 3e-06 time
+    Test: Example #1 from assignment description - passed
+took 3e-06 time
+    Test: Example #2 from assignment description - passed
+took 2e-06 time
+    Test: 3 cities each side, not all joinable - passed
+took 3e-06 time
+    Test: 3 cities each side, all joinable - passed
+Test Suite: function build - medium examples
+took 3e-06 time
+    Test: Greedy fails - passed
+took 0.001483 time
+    Test: Greedy fails large - passed
+took 6e-06 time
+    Test: All bridges available #1 - passed
+took 5e-06 time
+    Test: All bridges available #2 - passed
+took 4e-06 time
+    Test: All bridges available #3 - passed
+took 8e-06 time
+    Test: Random #1 - passed
+took 8e-06 time
+    Test: Random #2 - passed
+took 4e-06 time
+    Test: Random #3 - passed
+took 0.000107 time
+    Test: One bridge crosses many #1 - passed
+took 0.000103 time
+    Test: One bridge crosses many #2 - passed
+
+All tests successful
+
+
+real	0m0.035s
+user	0m0.031s
+sys	0m0.004s

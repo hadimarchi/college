@@ -5,3 +5,53 @@ Exercise:
     - Must identify fish species with 75% accuracy within 1 second of capture time.
     - Software updates without interrupting current use.
     - Must support 10 simultaneous fish identification processes
+Metrics of Non-Functional Requirements:
+  - Speed
+  - Size
+  - Ease of Use
+  - Reliability
+  - Robustness
+  - Portability
+
+Speed:
+  - Processed transactions/second
+  - User/event response time
+
+Size:
+  - GB of ram
+
+Ease of Use:
+  - Training time
+  - Errors/hour
+
+Reliability:
+  - Mean time to failure
+  - Uptime/availability
+
+Robustness:
+  - Time to restart after failure
+  - Percentage of events causing failure
+
+Portability:
+  - Percentage of target dependent statements
+  - Number of target systems
+
+Registration App:
+  Funtional Req:
+    Student can click a buttom above his current schedule and classes he is waitlisted for
+    will appear on his schedule
+
+  Non-Functional Req:
+    Server hosted-on must be capable of handling the entire student body using registration simultaneously
+
+
+User Stories:
+  Short simple descriptions of a feature from POV of user who desires the feature.
+
+  Examples:
+    As a user I want to view my previous semesters course schedules so I can check which classes I have
+    and have not already taken.
+    As a user I want to view my tentative schedule in the form of a timesheet so I can have a
+    better sense of that schedule.
+    As a user I can login and logout of my account.
+    As a user I can drop a course I have registered for.

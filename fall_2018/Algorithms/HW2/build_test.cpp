@@ -815,7 +815,7 @@ void test_build_medium(Tester & t)
         test_build_single(t, w, e, cbs, 4,
                           "Greedy fails");
     }
-    
+
     // Greedy fails large
     {
         w = 20;
@@ -837,7 +837,7 @@ void test_build_medium(Tester & t)
         test_build_single(t, w, e, cbs, ans,
                           "Greedy fails large");
     }
-    
+
     // All bridges available #1
     {
         w = 4;
@@ -1030,10 +1030,5 @@ int main()
     }
     std::cout << std::endl;
 
-    // Wait for user
-    std::cout << "Press ENTER to quit ";
-    while (std::cin.get() != '\n') ;
-
     return 0;
 }
-
