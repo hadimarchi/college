@@ -40,20 +40,22 @@ bridge_set generate_bridge_sets(int n, const bridges & possible_bridges){
   if (n==0){ return {{}};}
   auto subsets = generate_bridge_sets(n-1, possible_bridges);
   auto possible_bridge_sets = subsets;
-  bool bad=false;
+  bool bad_bridge=false;
+  unsigned int last_index;
   for(auto v:subsets){
     v.push_back(n-1);
     if(v.size() >= 2){
       for (auto i=0; i<v.size();++i){
-        if (i!=v.size()-1){
-          if (bridges_cross(possible_bridges[v[i]], possible_bridges[v[v.size()-1]])){bad=true;break;}
-          if (bridges_cross(possible_bridges[v[v.size()-1]], possible_bridges[v[i]])){bad=true;break;}
-          if (bridges_share_city(possible_bridges[v[i]], possible_bridges[v[v.size()-1]])){bad=true;break;}
+        last_index = v.size()-1;
+        if (i!=last_index){
+          if (bridges_cross(possible_bridges[v[i]], possible_bridges[v[last_index]])){bad_bridge=true;break;}
+          if (bridges_cross(possible_bridges[v[last_index]], possible_bridges[v[i]])){bad_bridge=true;break;}
+          if (bridges_share_city(possible_bridges[v[i]], possible_bridges[v[last_index]])){bad_bridge=true;break;}
         }
       }
     }
-    if (bad==false) possible_bridge_sets.push_back(v);
-    bad=false;
+    if (bad_bridge==false) possible_bridge_sets.push_back(v);
+    bad_bridge=false;
   }
   return possible_bridge_sets;
 }
@@ -74,6 +76,6 @@ int build(int w, int e, const bridge_set & possible_bridges){
     toll = 0;
     }
   duration = (clock()-start)/(double)CLOCKS_PER_SEC;
-  cout<<"took "<<duration<<" time"<<endl  ;
+  cout<<"took "<<duration<<endl  ;
   return max_toll;
 }

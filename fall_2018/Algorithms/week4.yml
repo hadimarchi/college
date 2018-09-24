@@ -1,0 +1,27 @@
+Topological Sort:
+  Of a Digraph:
+    Ordering of vertices so that every arc of digrap points from earlier to later vertex.
+
+  DAG:
+    Directed acyclic graph: digraph with no directed cycle
+    Fact: A digraph has a topological sort precisely if (if and only if) it is a DAG
+
+  Sort Algorithm 1:
+    Based on DFS
+    How:
+      - Do DFS and record order of visitations.
+      - Reverse
+      - Have a topological ordering
+    Weakness:
+      - Gets complicated when there is a cycle.
+
+  Sort Algorithm 2:
+    Find-Source:
+      Source: vertex with no arc pointing toward it
+    Decrease and Conquer:
+      - digraph has no vertices then end (success)
+      - try to find a source
+        - if non, digraph is not a DAG; end(failure)
+        - if there is a source s then output s, remove s from the digraph, do
+          a topological source on what remains
+      

@@ -49,9 +49,9 @@ User Stories:
   Short simple descriptions of a feature from POV of user who desires the feature.
 
   Examples:
-    As a user I want to view my previous semesters course schedules so I can check which classes I have
+    As a student I want to view my previous semesters course schedules so I can check which classes I have
     and have not already taken.
-    As a user I want to view my tentative schedule in the form of a timesheet so I can have a
+    As a student I want to view my tentative schedule in the form of a timesheet so I can have a
     better sense of that schedule.
     As a user I can login and logout of my account.
-    As a user I can drop a course I have registered for.
+    As a student I can drop a course I have registered for.
