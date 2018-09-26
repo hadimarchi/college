@@ -1,5 +1,6 @@
 #ifndef BUILD_HPP
 #define BUILD_HPP
+
 #include <vector>
 #include <iostream>
 
@@ -12,4 +13,5 @@ struct Bridge{
 using bridges = std::vector<Bridge>;
 
 int build(int w, int e, const bridge_set & bridge_set);
+
 #endif

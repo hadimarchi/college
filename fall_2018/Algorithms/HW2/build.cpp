@@ -4,9 +4,6 @@ using std::cout;
 using std::endl;
 #include <algorithm>
 using std::max;
-#include <cstdio>
-#include <ctime>
-using std::clock;
 
 bridges bridge_vecs_to_structs(const bridge_set & bridges_vec){
   bridges bridge_structs = {};
@@ -62,12 +59,9 @@ bridge_set generate_bridge_sets(int n, const bridges & possible_bridges){
 
 int build(int w, int e, const bridge_set & possible_bridges){
   auto bridge_structs = bridge_vecs_to_structs(possible_bridges);
-  double duration;
-  std::clock_t start;
   auto possible_bridge_sets = generate_bridge_sets(possible_bridges.size(), bridge_structs);
   auto toll = 0;
   auto max_toll = 0;
-  start=clock();
   for (auto set:possible_bridge_sets){
     for (auto i=0; i<set.size(); ++i){
       toll+=(bridge_structs[set[i]]).toll;
@@ -75,7 +69,5 @@ int build(int w, int e, const bridge_set & possible_bridges){
     max_toll = max(max_toll, toll);
     toll = 0;
     }
-  duration = (clock()-start)/(double)CLOCKS_PER_SEC;
-  cout<<"took "<<duration<<endl  ;
   return max_toll;
 }

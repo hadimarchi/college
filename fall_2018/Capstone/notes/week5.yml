@@ -1,0 +1,72 @@
+Patterns:
+  A general way to do something
+  Uses:
+    - starting point for architectural design
+    - As a design checklist
+    - Way to organize the work of the development team
+    - Means of assessing components for reuse
+    - As a vocabulary for talking about application types
+  Big Software Patterns (Architectures):
+    Model-View-Controller(MVC):
+      Controller <-> View <-> Model <-> Controller
+      Controller:
+        Logic of the application
+        The one who acts on the model
+        Maps user actions to model updates
+        Selects view
+      View:
+        User communication
+        Renders model
+        Requests model updates
+        Sends user events to controller
+      Model:
+        Manage data
+        Encapsulates applications state
+        Notifies view of state changess
+
+    Event:
+      Someting that happens that a program can respond to
+      Examples:
+        - Keypress
+        - Mousedown
+        - Window status change
+
+    Layered Architecture Pattern:
+      Concept: Each layer talks only to one above and below it.
+      Layers:
+          1. User Interface
+          2. User interface management & Authentication/Authorization
+          3. Core business logic/application functionality & System utilities
+          4. System support (OS, database, etc)
+
+Testing:
+  Implementation & Unit Testing:
+    - Code and Documentation
+      - Should be able to:
+          - read
+          - understand
+          - modify
+          More critical as system gets larger
+    - Use Test-Driven-Development (TDD)
+    - Start creating higher-level tests that are necessary for continuous delivery
+    - Use a version control system (VCS) to develop all aspects of project
+  Integration & System Testing:
+    - Verification:
+      - Are we building the product right
+    - Validation:
+      - Are we building the right product
+
+Software Maintenance/Evolution:
+  Modern: Few and fewer systems are completely new
+  Evolution: Systems that are modified based on world/business changes
+
+Python:
+  Doctest:
+    Example:
+      def func():
+        """ what it does
+        >>> func()
+        expected output
+        """
+
+      python -m doctest file.py
