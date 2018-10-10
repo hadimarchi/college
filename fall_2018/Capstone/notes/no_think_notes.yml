@@ -1,0 +1,48 @@
+Chapter 1:
+  Krug's First Law of Usability:
+  DON'T MAKE ME THINK!
+  Webpage:
+    - Everything should be self-evident (no thought)
+      - Sometimes it can't be, must then be self-explanatory (little thought)
+    - Users should not ask:
+       - Where am I?
+       - Where should I begin?
+       - Where did they put _____?
+       - What are the most important things on this page?
+       - Why did they call it that?
+       - Is that an ad or part of the site
+
+Chapter 2: How we really use the web
+  How:
+    SCANNING, SATISFICING, AND MUDDLING THROUGH
+
+    Facts of Life:
+      1: We don't read pages, we scan them
+        Why:
+          - We're ususally on a mission
+          - We know we don't have to read everything
+          - We're good at it
+
+      2: We don't make optimal choices. We satisfice.
+          Elaboration: Users choose the first reasonable option(satisficing),
+                       not the best one
+          Why:
+            - We're usually in a hurry
+            - Not much of a cost for guessing wrong
+            - Weighing options might not improve our chances
+            - Guessing is more fun
+      3: We don't figure out how things work, we muddle through
+        Why:
+          - How it works isn't important to us
+          - If we find something that works we stick with it
+        Get it: Better to make it easy for the user to get it
+
+Chapter 3: Billboard Design 101
+  How to maximize user comprehension:
+    - Take advantage of conventions
+      - Clarity trumps Consistency (but consistency is still good)
+    - Create effective visual hierarchies
+    - Break pages up into clearly defined areas
+    - Make it obvious what’s clickable
+    - Eliminate distractions
+    - Format content to support scanning

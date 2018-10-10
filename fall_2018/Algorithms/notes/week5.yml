@@ -1,0 +1,74 @@
+Date: 09/26/2918
+Class: Algorithms
+
+Subsets:
+  Ordering:
+    Lexicographic order: ordering subsets by interpretation of elements in subset
+      - e.g alphabetical, ascending, descending, size
+      Examples:
+        - subsets of {1, 2, 3, 4} as bit vectors
+          0 0 0 0
+          0 0 0 1
+          0 0 1 0
+          0 0 1 1
+          0 1 0 0
+          0 1 0 1
+          0 1 1 0
+          0 1 1 1
+          1 0 0 0
+          1 0 0 1
+          1 0 1 0
+          1 0 1 1
+          1 1 0 0
+          1 1 0 1
+          1 1 1 0
+          1 1 1 1
+    Minimal-change order: adjacent subsets differ by addition or removal of one element only
+      Example:
+        - subsets of {1, 2, 3, 4} as bit vectors (This is Gray Code)
+          0 0 0 0
+          0 0 0 1
+          0 0 1 1
+          0 0 1 0
+          0 1 1 0
+          0 1 1 1
+          0 1 0 1
+          0 1 0 0
+          1 1 0 0
+          1 1 0 1
+          1 1 1 1
+          1 1 1 0
+          1 0 1 0
+          1 0 1 1
+          1 0 0 1
+          1 0 0 0
+    Gray vs. Lex:
+      Gray   Lex      Lex to Gray (Least significant bit (least significant 1))
+      0 0 0   0 0 0
+      0 0 1   0 0 1   Right
+      0 1 1   0 1 0   Middle
+      0 1 0   0 1 1   Right
+      1 1 0   1 0 0   Left
+      1 1 1   1 0 1   Right
+      1 0 1   1 1 0   Middle
+      1 0 0   1 1 1   Right
+    Loopless Algorithm: Given element can generate next element in constant time.
+
+Permutations:
+  Johnson-Trotter Algorithm:
+    Given a perm to find next:
+      - not last permutation (not in descending order)
+      - swap ascending order pair into descending order and reverse those between
+        - indices i, j
+          - i is greatest index such that p_i < p_i+1
+          - j is greatest index such that p_i < p_j
+          - swap p_i, p_j
+          - reverse p_i+1, p_i+2 ... p_j-1
+    Example:
+      - { 1 2 3 }
+        1 2 3 (p_i = 2, p_j = 3)
+        1 3 2
+        2 1 3
+        2 3 1
+        3 1 2
+        3 2 1

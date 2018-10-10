@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/Documents/college/fall_2018/Database_Systems/HW6/baseball_answer_with_schedule.sql.html</title>
+<meta name="Generator" content="Vim/8.0">
+<meta name="plugin-version" content="vim7.4_v2">
+<meta name="syntax" content="sql">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.Constant { color: #c00000; }
+.Special { color: #c000c0; }
+.Statement { color: #af5f00; }
+.Comment { color: #0000c0; }
+.Type { color: #008000; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+
+<span class="Statement">CREATE</span> DATABASE <span class="Comment">/*!32312 IF NOT EXISTS*/</span> `baseball_answer_with_schedule` <span class="Comment">/*!40100 DEFAULT CHARACTER SET latin1 */</span>;
+
+USE `baseball_answer_with_schedule`;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `COACH` (
+  `Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`Personnel_id`),
+  KEY `fk_Coach_Team1_idx` (`Team_name`),
+  CONSTRAINT `COACH_ibfk_1` FOREIGN KEY (`Personnel_id`) REFERENCES `PERSONNEL` (`id`),
+  CONSTRAINT `fk_Coach_Team1_idx` FOREIGN KEY (`Team_name`) REFERENCES `TEAM` (`name`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `DIVISION` (
+  `name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `League_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Special">DEFAULT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`name`),
+  KEY `fk_DIVISION_League1_idx` (`League_name`),
+  CONSTRAINT `fk_DIVISION_League1_idx` FOREIGN KEY (`League_name`) REFERENCES `LEAGUE` (`name`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `GAME` (
+  `Schedule_date` datetime <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Home_Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Visitor_Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`Schedule_date`,`Home_Team_name`,`Visitor_Team_name`),
+  KEY `fk_Game_Home1_idx` (`Home_Team_name`),
+  KEY `fk_Game_Visitor1_idx` (`Visitor_Team_name`),
+  CONSTRAINT `fk_Game_Home1_idx` FOREIGN KEY (`Home_Team_name`) REFERENCES `HOME` (`Team_name`),
+  CONSTRAINT `fk_Game_Visitor1_idx` FOREIGN KEY (`Visitor_Team_name`) REFERENCES `VISITOR` (`Team_name`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `Game_Pitcher` (
+  `Pitcher_Player_Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Record_type` <span class="Type">varchar</span>(<span class="Constant">15</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Game_Schedule_date` datetime <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Game_Home_Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Game_Visitor_Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`Pitcher_Player_Personnel_id`,`Game_Schedule_date`,`Game_Home_Team_name`,`Game_Visitor_Team_name`),
+  KEY `fk_Game_Pitcher_GAME1_idx` (`Game_Schedule_date`,`Game_Home_Team_name`,`Game_Visitor_Team_name`),
+  KEY `Record_type` (`Record_type`),
+  CONSTRAINT `Game_Pitcher_ibfk_1` FOREIGN KEY (`Record_type`) REFERENCES `Record` (`<span class="Special">type</span>`),
+  CONSTRAINT `fk_Game_Pitcher_GAME1_idx` FOREIGN KEY (`Game_Schedule_date`, `Game_Home_Team_name`, `Game_Visitor_Team_name`) REFERENCES `GAME` (`Schedule_date`, `Home_Team_name`, `Visitor_Team_name`),
+  CONSTRAINT `fk_Game_Pitcher_Record1_idx` FOREIGN KEY (`Pitcher_Player_Personnel_id`) REFERENCES `PITCHER` (`Player_Personnel_id`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `Game_Umpire` (
+  `Umpire_Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Game_Schedule_date` datetime <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Game_Home_Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Game_Visitor_Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`Umpire_Personnel_id`,`Game_Schedule_date`,`Game_Home_Team_name`,`Game_Visitor_Team_name`),
+  KEY `fk_Game_Umpire_Game1_idx` (`Game_Schedule_date`,`Game_Home_Team_name`,`Game_Visitor_Team_name`),
+  CONSTRAINT `fk_Game_Umpire_Game1_idx` FOREIGN KEY (`Game_Schedule_date`, `Game_Home_Team_name`, `Game_Visitor_Team_name`) REFERENCES `GAME` (`Schedule_date`, `Home_Team_name`, `Visitor_Team_name`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `HOME` (
+  `Schedule_date` datetime <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `runs` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span> <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">0</span><span class="Special">'</span>,
+  `hits` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span> <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">0</span><span class="Special">'</span>,
+  `errors` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span> <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">0</span><span class="Special">'</span>,
+  `Pitcher_Player_Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`Schedule_date`,`Team_name`),
+  KEY `fk_Home_Pitcher1_idx` (`Pitcher_Player_Personnel_id`),
+  KEY `Team_name` (`Team_name`),
+  CONSTRAINT `HOME_ibfk_1` FOREIGN KEY (`Team_name`) REFERENCES `TEAM` (`name`),
+  CONSTRAINT `fk_Home_Pitcher1_idx` FOREIGN KEY (`Pitcher_Player_Personnel_id`) REFERENCES `PITCHER` (`Player_Personnel_id`),
+  CONSTRAINT `fk_Home_Schedule1_idx` FOREIGN KEY (`Schedule_date`) REFERENCES `SCHEDULE` (`<span class="Type">date</span>`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `LEAGUE` (
+  `name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `Orientation` (
+  `<span class="Special">type</span>` <span class="Type">varchar</span>(<span class="Constant">10</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`<span class="Special">type</span>`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `PERSONNEL` (
+  `id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `first_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `last_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `birth_date` <span class="Type">date</span> <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `birth_place` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `PITCHER` (
+  `Player_Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `ERA` double <span class="Statement">NOT</span> <span class="Special">NULL</span> <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">0</span><span class="Special">'</span>,
+  PRIMARY KEY (`Player_Personnel_id`),
+  CONSTRAINT `PITCHER_ibfk_1` FOREIGN KEY (`Player_Personnel_id`) REFERENCES `PLAYER` (`Personnel_id`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `PLAYER` (
+  `Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `batting_average` double <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span> <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">Free agent</span><span class="Special">'</span>,
+  `Orientation_type` <span class="Type">varchar</span>(<span class="Constant">10</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`Personnel_id`),
+  KEY `fk_Player_Team1_idx` (`Team_name`),
+  KEY `fk_Player_Orientation1_idx` (`Orientation_type`),
+  CONSTRAINT `PLAYER_ibfk_1` FOREIGN KEY (`Personnel_id`) REFERENCES `PERSONNEL` (`id`),
+  CONSTRAINT `fk_Player_Orientation1_idx` FOREIGN KEY (`Orientation_type`) REFERENCES `Orientation` (`<span class="Special">type</span>`),
+  CONSTRAINT `fk_Player_Team1_idx` FOREIGN KEY (`Team_name`) REFERENCES `TEAM` (`name`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `Player_Score` (
+  `Player_Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `single` int(<span class="Constant">11</span>) <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">0</span><span class="Special">'</span>,
+  `triple` int(<span class="Constant">11</span>) <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">0</span><span class="Special">'</span>,
+  `home_run` int(<span class="Constant">11</span>) <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">0</span><span class="Special">'</span>,
+  `Game_Schedule_date` datetime <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Game_Home_Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Game_Visitor_Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `ddouble` int(<span class="Constant">11</span>) <span class="Special">DEFAULT</span> <span class="Special">'</span><span class="Constant">0</span><span class="Special">'</span>,
+  PRIMARY KEY (`Player_Personnel_id`,`Game_Schedule_date`,`Game_Home_Team_name`,`Game_Visitor_Team_name`),
+  KEY `fk_Game_Statistis_Game1_idx` (`Game_Schedule_date`,`Game_Home_Team_name`,`Game_Visitor_Team_name`),
+  CONSTRAINT `Player_Score_ibfk_1` FOREIGN KEY (`Player_Personnel_id`) REFERENCES `PLAYER` (`Personnel_id`),
+  CONSTRAINT `fk_Game_Statistis_Game1_idx` FOREIGN KEY (`Game_Schedule_date`, `Game_Home_Team_name`, `Game_Visitor_Team_name`) REFERENCES `GAME` (`Schedule_date`, `Home_Team_name`, `Visitor_Team_name`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `Record` (
+  `<span class="Special">type</span>` <span class="Type">varchar</span>(<span class="Constant">15</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`<span class="Special">type</span>`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `SCHEDULE` (
+  `<span class="Type">date</span>` datetime <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`<span class="Type">date</span>`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `TEAM` (
+  `name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `city` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `manager` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Division_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`name`),
+  <span class="Special">UNIQUE</span> KEY `manager` (`manager`),
+  KEY `fk_Team_Division1_idx` (`Division_name`),
+  CONSTRAINT `fk_Team_Division1_idx` FOREIGN KEY (`Division_name`) REFERENCES `DIVISION` (`name`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `UMPIRE` (
+  `Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`Personnel_id`),
+  CONSTRAINT `UMPIRE_ibfk_1` FOREIGN KEY (`Personnel_id`) REFERENCES `PERSONNEL` (`id`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+<span class="Comment">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span class="Comment">/*!40101 SET character_set_client = utf8 */</span>;
+<span class="Statement">CREATE</span> <span class="Special">TABLE</span> `VISITOR` (
+  `Schedule_date` datetime <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Team_name` <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `runs` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `hits` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `errors` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  `Pitcher_Player_Personnel_id` int(<span class="Constant">11</span>) <span class="Statement">NOT</span> <span class="Special">NULL</span>,
+  PRIMARY KEY (`Schedule_date`,`Team_name`),
+  KEY `fk_Visitor_Pitcher1_idx` (`Pitcher_Player_Personnel_id`),
+  KEY `Team_name` (`Team_name`),
+  CONSTRAINT `VISITOR_ibfk_1` FOREIGN KEY (`Team_name`) REFERENCES `TEAM` (`name`),
+  CONSTRAINT `fk_Visitor_Pitcher1_idx` FOREIGN KEY (`Pitcher_Player_Personnel_id`) REFERENCES `PITCHER` (`Player_Personnel_id`),
+  CONSTRAINT `fk_Visitor_Schedule1_idx` FOREIGN KEY (`Schedule_date`) REFERENCES `SCHEDULE` (`<span class="Type">date</span>`)
+) ENGINE=InnoDB <span class="Special">DEFAULT</span> CHARSET=latin1;
+<span class="Comment">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

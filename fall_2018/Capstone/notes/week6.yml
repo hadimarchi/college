@@ -1,0 +1,70 @@
+Name: Hal DiMarchi
+Date: 10/01/2018
+Class: Capstone
+
+TNEL: TYPE NOW EDIT LATER
+Kanban:
+  Board:
+    Columns:
+      - Backlog
+      - Specify
+       - Active & Done columns
+      - Implement
+       - Active & Done columns
+      - Validate
+       - Active & Done columns
+  Quickstart:
+    1: Capture your team's high-level routine
+    2: Re-decorate your wall (with Kanban board)
+    3: Set limits on chaos
+    4: Define done
+    5: Run your daily standup
+
+  Step 1: What do developers do?
+    - Discuss product with partners, teammates and customers
+    - Write and answer email, texts, etc
+    - Find, evaluate, and fix bugs and operational issues (tickets)
+    - Track feedback
+    - Produce improvements to products and infrastructure
+    - Prepare for a major presentation
+    - Major design documents
+    - Rolling out major changes
+    - and more!
+
+    Guidelines:
+      - Include only the steps your team does
+      - Combine sequential steps that are usually done by the same person
+      - When in doubt, start with
+        - Backlog
+        - Specify
+        - Implement
+        - Validate
+  Step 2: Re-decorate your wall
+    - Post the steps on a signboard close to where your team works
+    - Computer vs. Physical
+
+  Step 3: I zoned out
+
+  Step 4: Define done
+    - Develop a done criteria/set of rules
+      Examples:
+        Specify: all items broken into tasks that can be finished in less than
+                 a wekk and quick specs completed for each item
+        Implement: code is reviewed and unit tested, static analysis is clean, code
+                   is checked in, acceptance tests pass and customer-facing documentation
+                   is complete
+        Validate: work is deployed to production and tried by a significant subset
+                  of real customers. All issues found are resolved.
+
+  Step 5: Run daily standup
+    - With a loaded backlog no planning meeting is necessary
+    - Kanban flows continuously as long as there is work to do
+    - Daily standup meetings at the Kanban board are the only regular meetings
+    Daily standup:
+      - Team project manager ususally runs the standup
+      - Ask whether any team members are block or need assistance
+      - Assign people to resolve issues
+      - Experienced teams can complete the standup in 5 minutes
+      - Can extend and have each team member say what they are doing and potential
+        problems they are concerned with
+      - Focus is keeping them short and everybody in attendance

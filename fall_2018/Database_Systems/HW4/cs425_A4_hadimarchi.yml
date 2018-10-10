@@ -1,0 +1,106 @@
+Name: Hal DiMarchi
+Date: 09/27/2018
+Assignment: 4
+
+Types of Constraints:
+  1: Constraints that are inherent in the data model. We call these inherent
+  model-based constraints or implicit constraints.
+  2: Constraints that can be directly expressed in the schemas of the data model, typi-
+  cally by specifying them in the DDL (data definition language, see Section 2.3.1).
+  We call these schema-based constraints or explicit constraints.
+  3: Constraints that cannot be directly expressed in the schemas of the data
+  model, and hence must be expressed and enforced by the application pro-
+  grams or in some other way. We call these application-based or semantic
+  constraints or business rules.
+
+Question: Suppose that each of the following Update operations is applied directly to
+the database state shown in Figure 5.6. Discuss all integrity constraints
+violated by each operation, if any, and the different ways of enforcing
+these constraints.
+
+a: Insert <‘Robert’, ‘F’, ‘Scott’, ‘943775543’, ‘1972-06-21’, ‘2365 Newcastle
+Rd, Bellaire, TX’, M, 58000, ‘888665555’, 1> into EMPLOYEE .
+  Response:
+    A referential integrity constraint is violated; The address for this entry does not match with the Dno.
+    The address places the worker in Bellaire, TX, but the Dno places him in Houston.
+    This could be enforced by an application program that deconstructs the address to retrieve
+    a city, and then checks to see if this matches with the location corresponding with a
+    department number.
+
+b: Insert <‘ProductA’, 4, ‘Bellaire’, 2> into PROJECT .
+  Response:
+  Again a referential integrity constraint is violated. The location of the project is Bellaire,
+  but the Dnum of the project does not match up with that location. In fact there is no department
+  with a Dnum of 2. The first can be fixed with a foreign key relationship between PROJECT and DEPT_LOCATIONS
+  on both Plocation and Dnum attributes. The second can be enforced with a foreign key relationship
+  between PROJECT and DEPARTMENT.
+
+
+
+c: Insert <‘Production’, 4, ‘943775543’, ‘2007-10-01’> into DEPARTMENT .
+  Response:
+    Violates the entity integrity constraint as Dnumber must be unique but is already
+    held by the Administration department. This can be enforced with a uniqueness constraint
+    on the attribute.
+    Also violate a referential integrity constraint between DEPARTMENT and EMPLOYEE.
+    There is no employee with an SSN of 943775543 represented in the database. This
+    could be enforced with a foreign key relationship.
+
+d: Insert <‘677678989’, NULL , ‘40.0’> into WORKS_ON .
+  Response:
+    Violates the entity integrity constraint as Pno is null for this entry, but Pno
+    is part of the primary key for this entity. This could be enforced a 'not null' constraint,
+    which is typically automatic when setting an attribute as a primary key.
+    Violates a referential integrity constraint between WORKS_ON and EMPLOYEE as there is no
+    employee matching the Essn in this entry. This could be enforced with a foreign key relationship.
+
+e: Insert <‘453453453’, ‘John’, ‘M’, ‘1990-12-12’, ‘spouse’> into DEPENDENT .
+  Response:
+    Violates a domain constraint on the the relationship attribute. Clearly
+    spouse is meant to be capitalized. This could be enforced by having the
+    column corresponding to this attribute specified in the DDL as a type
+    that only has values starting with a capital letter, or are an element of some
+    set of correct values.
+
+f: Delete the WORKS_ON tuples with Essn = ‘333445555’.
+  Response:
+    Violates no integrity constraints.
+
+g: Delete the EMPLOYEE tuple with Ssn = ‘987654321’.
+  Response:
+    Violates a relational integrity constraint as the employee with this SSN
+    has a dependent. This could be enforced/corrected by setting the table to cascade
+    this delete operation to keep the database in a valid state. The operation
+    could also be rejected. Finally the dependent in question could simply have the
+    Essn set to null, but this would violate an entity integrity constraint.
+
+h: Delete the PROJECT tuple with Pname = ‘ProductX’.
+  Response:
+    Violates a relational integrity constraint as an employee works on this project
+    and so the tuple is referenced as a foreign key in WORKS_ON. This could be
+    enforced/corrected by setting the table to cascade this delete operation to keep
+    the database in a valid state, or by rejecting the delete. In this case setting
+    the Pno of the corresponding WORK_ON entry to null would violate an entity integrity
+    constraint.
+
+i: Modify the Mgr_ssn and Mgr_start_date of the DEPARTMENT tuple with
+Dnumber = 5 to ‘123456789’ and ‘2007-10-01’, respectively.
+  Response:
+    This violates a semantic integrity constraint. The employee with
+    ssn 123456789 has a superior who is also part of the department with
+    a Dnumber of 5. If the employee is the manager of the department they should
+    not have a superior in the department. This could be enforced through a separate
+    application program that checks these semantics before entry into the database.
+    Additionally we could use the DDL to create an asseration.
+
+j: Modify the Super_ssn attribute of the EMPLOYEE tuple with Ssn =
+‘999887777’ to ‘943775543’.
+  Response:
+    This violates a referential integrity constraint between the EMPLOYEE table
+    and itself as there is no employee with the SSN 943775543 to manage 999887777.
+    This could be enforced via a foreign key between Super_ssn and Ssn.
+
+k: Modify the Hours attribute of the WORKS_ON tuple with Essn =
+‘999887777’ and Pno = 10 to ‘5.0’.
+  Response:
+    This does not violate any integrity constraints.
