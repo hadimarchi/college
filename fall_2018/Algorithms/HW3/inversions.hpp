@@ -3,7 +3,6 @@
 
 #include <algorithm>
 using std::copy;
-using std::max;
 #include <cstddef>
 using std::size_t;
 #include <iterator>
@@ -14,7 +13,7 @@ using std::remove_reference;
 #include <vector>
 using std::vector;
 
-
+//stableMerge and mergeSort provided by Glenn G. Chappell
 template <typename RAIter>
 void stableMerge(RAIter first, RAIter middle, RAIter last, size_t & inversion_count)
 {
