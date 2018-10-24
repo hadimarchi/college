@@ -9,7 +9,7 @@ CREATE TABLE `COACH` (
   `Team_name` varchar(45) NOT NULL,
   PRIMARY KEY (`Personnel_id`),
   KEY `fk_Coach_Team1_idx` (`Team_name`),
-  CONSTRAINT `COACH_ibfk_1` FOREIGN KEY (`Personnel_id`) REFERENCES `PERSONNEL` (`id`),
+  CONSTRAINT `fk_Coach_Personnel1_idx` FOREIGN KEY (`Personnel_id`) REFERENCES `PERSONNEL` (`id`),
   CONSTRAINT `fk_Coach_Team1_idx` FOREIGN KEY (`Team_name`) REFERENCES `TEAM` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -171,7 +171,8 @@ CREATE TABLE `TEAM` (
   PRIMARY KEY (`name`),
   UNIQUE KEY `manager` (`manager`),
   KEY `fk_Team_Division1_idx` (`Division_name`),
-  CONSTRAINT `fk_Team_Division1_idx` FOREIGN KEY (`Division_name`) REFERENCES `DIVISION` (`name`)
+  CONSTRAINT `fk_Team_Division1_idx` FOREIGN KEY (`Division_name`) REFERENCES `DIVISION` (`name`),
+  CONSTRAINT `fk_Team_Personnel1_idx` FOREIGN KEY (`manager`) REFERENCES `PERSONNEL` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

@@ -1,6 +1,9 @@
 Algorithms.pdf
 Fundamentals_of_Database_Systems_7th_edition.pdf
 
+#archives
+*.zip
+
 #Latex
 *.aux
 *.fls
@@ -8,3 +11,6 @@ Fundamentals_of_Database_Systems_7th_edition.pdf
 *.log
 *.fdb_latexmk
 *.toc
+
+#mysql-workbench
+*.mwb.bak
