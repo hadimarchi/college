@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage[export]{adjustbox}
+\usepackage[top=1in, bottom=1.25in, left=1.00in, right=1.00in]{geometry}
+
+\title{CS471 Midterm}
+\author{Hal A. DiMarchi}
+
+\begin{document}
+\begin{titlepage}
+  \normalsize
+  \pagenumbering{gobble}
+  \centering
+  \vfill
+  {\bfseries\Large
+    CS471 Midterm \\
+    Hal A. DiMarchi \\
+    }
+  \vfill
+\end{titlepage}
+\newpage
+\section{Problem 1}
+  You are part of a team charged with writing a library of mathematical functions
+  involving floating-point values. Your team uses the Waterfall method.
+  Write a complete set of requirements for the library.
+  \subsection{Response}
+    \subsubsection{Non-Functional Requirements}
+      \begin{enumerate}
+        \item The library will be written in Python 3.6.
+        \item The library will be deployed to the Python Package Index for easy install with pip.
+        \item All mathematical functions will be written with most efficient algorithms possible based on average case performance
+        \item A user of the package already familiar with floating point math will
+              be able to use the majority of system functions within two hours of self-guided training.
+        \item The library will function on any system that is capable of using the Python 3.6 interpreter.
+        \item The library will not use any third party packages beyond those that are part of the Python Standard Library.
+        \item Any one function not accepting lists or dictionaries of arguments will take no more than half a second to execute.
+        \item The library will utilize multiple threads, if possible, when performing operations on lists of values with lengths of at least 100.
+      \end{enumerate}
+    \subsubsection{Functional Requirements}
+      \begin{enumerate}
+        \item Provided functions
+        \begin{itemize}
+          \item The library will provide functions for all basic arithmetic operations on floating point values.
+          \item The library will provide functions for all trigometric operations on floating point values.
+          \item The library will provide functions for all hyperbolic operations on floating point values.
+          \item The library will provide functions for summing over a list and finding the product of a list of values.
+          \item The library will provide functions for logarithmic operations at any base.
+          \item The library will provide functions for rounding a floating point value to any decimal precision or to the nearest integer.
+          \item The library will store, and provide functionality to return a text representation of, the last twenty function calls.
+        \end{itemize}
+        \item The library will support both negative and positive floating point values and operations on them.
+        \item When a function is passed an innapropriate type it will raise a TypeError.
+        \item When a function is passed a value outside of the range of values it can operate on it will raise a ValueError.
+        \item The library will treat integers as floating point values with a decimal value of 0.
+        \item The library will by default calculate and store floating point values at a
+              decimal place accuracy of twenty, except when the exact decimal value can be represented
+              in fewer than twenty digits.
+      \end{enumerate}
+
+\section{Problem 2}
+  You are employed as a software developer for a company that uses the Scrum methodology
+  on all software development projects. As part of a major expansion, your company
+  is hiring a number of experienced software developers, none of who have ever used
+  Scrum before, but all of whom have completed a number of projects using Kanban.
+
+  Write a guide for the newly hired developers explaining how Scrum works—comparing
+  and contrasting with Kanban as appropriate—to get them up to speed quickly.
+  \subsection{Response}
+  Scrum, as an Agile method, contains many of the components of Kanban.
+  You will be familiar with the idea of a kanban board to visualize workflow and split user stories into several stages.
+  Scrum shares the components of user stories and a visualization board,
+  but the board tends to be more simple with only
+  four stages; backlog, not started, in progress, and done. This stages are typically
+  not divided into active and done. User stories themselves, and the process of deciding
+  if an item is overall 'done' are essentially identical.
+
+  Like Kanban, Scrum involves daily meetings. These meetings are often referred to as
+  Scrums, Scrumming, or just Scrum. Scrum is led by a Scrum master, very similar to
+  the Team project manager from Kanban. Each meeting involves each team member discussing
+  what they have done since the last meeting, and what they will be working on that day,
+  along with problems they've run into and anything else the team needs to be aware of.
+
+  While Scrum also prioritizes incremental development it approaches development overall
+  in a much more structured way. Work on a Scrum team is completed in a series of 'sprints'
+  that typically occurr over a two week period.
+
+  A sprint is begun with a planning meeting in which items from the backlog are selected to be worked on during that sprint and moved
+  into the 'not started' section of the Scrum board. One member of these meetings is known as the 'Product Owner'.
+  This person represents the customer who is asking the team to build their product.
+  Ideally this truly is the customer, or a member of their organization,
+  but often it is simply the Scrum master. This person is the arbiter of what is even in the backlog,
+  and what the priority of each of those items is.
+
+  A sprint then continues for a set period of time in which items moved out of the backlog
+  are selected and worked on by individual team members. Team members typically select one user story
+  at a time, and select a new one once the item has been completed and validated.
+
+  At the end of the sprint team members conduct a sprint review in which they meet with the
+  product owner and often developers from other teams within their organization to present and
+  demonstrate what they've implemented during the sprint. This allows for the team and product
+  owner to be on the same page before another planning meeting occurs.
+
+  Sprints make Scrum far more deadline and planning oriented than Kanban.
+
+
+\section{Problem 3}
+In 2011 the Municipality of Anchorage began a project to develop a software system
+to handle payroll and other city government functions.
+The new system, developed by SAP, replaces the old PeopleSoft system.
+\subsection{Response}
+  \subsubsection{PeopleSoft System}
+    The PeopleSoft software suite is an 'enterprise resource planning' (ERP) system
+    meaning that it provides tools for organizations to manage and track their resources
+    including human resources and funding. PeopleSoft provided financial and supply chain
+    management in a module known as 'Financials and Supply Chain Management'(FSCM). This included
+    functionality for handling invoices, paychecks, budget and labor contracts and tax information.
+  \subsubsection{Replacement Reasoning}
+  The third party contractor, Gartner, was consulted to conduct an ERP review. Their review
+  supported an upgrade to a new PeopleSoft implementation citing technical issues with
+  the decade old implementation. This review supported this upgrade over a replacement with SAP
+  ERP software because it projected that, despite an initially lower cost, SAP's software
+  and the process of implementing it as the city of Anchorage's ERP software would eventually
+  cost more. Anchorage ignored this second piece of reasoning. A review done by contractor Den
+  Howlett suggests this decision was made because of the lower cost presented by SAP. It is thought
+  that Anchorage ignored Gartner's analysis because of its purely cost/benefit analysis approach to the
+  review, which lacked an analysis of the capabilities of Anchorage to manage this process.
+  \subsubsection{SAP and their Software}
+    SAP is a software development company based in Germany. It primarily develops enterprise software,
+    including ERP systems. SAP's software includes software for managing Operations,
+    Financials (Financial Accounting, Management Accounting, Financial Supply Chain Management), and
+    Human Capital Management (Training, Payroll, e-Recruiting). Anchorage was primarily interested in
+    handling invoices, paychecks, budget and labor contracts and tax information, which SAP's ERP software was capable of.
+  \subsubsection{Timeline}
+  \begin{itemize}
+    \item 2011: SAP project begins with a 10.6 million dollar budget and a launch date in 2012.
+    \item 2012: No launch.
+    \item 2013: Additional funding is granted to the project and the launch date is pushed back.
+    \item 2014: Launch is delayed again. Anchorage assembly considers and approves an external audit of the project.
+    \item 1st half of 2015: The reviews are finished. Problems with management, documentation, staff, and lack of a well-defined project plan are discovered.
+                Reviews also conclude the project should continue.
+    \item 2nd half of 2015: Ethan Berkowitz replaces Dan Sullivan as mayor, plans to pause SAP project, but it continues.
+    \item 2016: Anchorage highers a former IBM executive as project manager.
+    \item 2017: Project has cost \$81 million at this point. Despite strong criticism several million more are given and SAP launches.
+    \item 2018: SAP has overpayed and underpayed employees thousands of times since its launch. That said, the rate at which it does so is dropping.
+  \end{itemize}
+  \subsubsection{Current Status}
+    Currently the SAP software is still being used by Anchorage government. In June it received 155 reports of payroll
+    error, down from 1,200 in its first month of operation.
+  \subsubsection{Largest Problem}
+    The largest problem for the project seems to have been the lack of a clear blueprint
+    or specified set of software requirements. The team implementing the SAP
+    software was using a Waterfall approach to project management. This approach
+    relies on having a fully fleshed out design before taking any steps to further the
+    project. In addition to the lack of software requirements, no testing strategy was present.
+    In a system with particularly costly consequences for error this step was particularly important.
+    All in all the team failed to effectively use any project management techniques and so their
+    attempts crumbled and stagnated for years.
+
+\section{Problem 4}
+  We need to develop a checklist to perform software inspections later in the semester.
+  Research the topic and create a 10-question checklist that would be appropriate for class assignments at the level of CS 311.
+  \subsection{Response}
+  \begin{enumerate}
+    \item Are variables that go unchanged declared as const?
+    \item Are variables named in such a way that their purpose is easy to understand?
+    \item Are functions that want to modify a paramater taking it in by reference?
+    \item Do any array access operations access an index outside of the array?
+    \item Are all functions, classes, and variables declared before they are used?
+    \item Are all templated functions or classes defined in header files?
+    \item Are all types and functions from the standard library prefaced with
+          'std::' or in files with an appropriate 'using std::"thing"' statement?
+    \item Can your code be easily understood by a peer, or is further documentation necessary?
+    \item Do any of your classes define a copy or move constructor or a destructor? If any are defined you likely want to define all three.
+    \item Are all pointers set to null when the object they are pointing at is destroyed?
+  \end{enumerate}
+
+
+
+
+
+
+
+
+
+\end{document}
