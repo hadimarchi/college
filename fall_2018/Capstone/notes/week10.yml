@@ -1,0 +1,23 @@
+Name: Hal DiMarchi
+
+
+Unit Testing:
+  testable: software designs that allow for convenient unit testing
+    Code is:
+      - testable (has known correct output)
+      - modular
+      - configurable/customizable
+
+  3 A's of unit tests:
+    1: Arrange
+      - set up what you need
+    2: Act
+      - perform operation being tested
+    3: Assert
+      - Require/Assert that the output was correct
+
+  Closure: Functions that carries some part of the environment it was defined
+           in with it
+           Purpose: Substitute for an object that exists so that a single member
+                    function can be called
+  

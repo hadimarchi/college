@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage[top=1in, bottom=1.25in, left=1.00in, right=1.00in]{geometry}
+
+\begin{document}%
+\normalsize%
+\begin{titlepage}
+  \pagenumbering{gobble}
+  \centering
+  \vfill
+  {\bfseries\Large
+      Algorithms Homework 4\\
+      H. DiMarchi\\
+  }
+  \vfill
+\end{titlepage}
+\pagenumbering{gobble}
+\newpage
+\section{Chapter 3}
+  \subsection{Section 2}
+    \subsubsection{Problem 8}
+      \paragraph{a.}
+        Start by initializing a count of 0.
+        Iterate through the string. Check each character. If it is an A, iterate
+        through the rest of the string, checking each character: If the character
+        is a B, increment your count of substrings that start with A and end with B.
+        Continue until you have finished the top level iteration through the string.
+      \paragraph{b.}
+        Start by initializing a count of 0, and an increment\_amount of 1.
+        Iterate through the string, checking each character. If the character
+        is a B, increment your count of substrings that begin with A and end with begin
+        by your increment amount. If the character is an A,
+        increment your increment count by 1: By doing this you will account for
+        each substring that could be constructed from a particular B after that A.
+        Continue this until you have finished iterating through the string.
+
+        This is a more efficient algorithm because it requires you to iterate
+        through the string only once.
+    \section{Chapter 4}
+      \subsection{Section 5}
+        \subsubsection{Problem 13}
+        Iterate through matrix by length of rows such that each item you touch on
+        begins a row. For each item, check if that item is greater than or equal to the value you are
+        searching for. If that item is equal to the value, return that index. If that item is greater than the value look through preceding row from the
+        second element of that row to the end of that row for the value you are searching for until you find it,
+        then return the index of the value searched for.
+        If that item is neither go to the first element of the next row and make the same check.
+        If you arrive at the last row, and its first value is less than the value searched for
+        , iterate through that row for the value.
+        \newline
+        Value searched for: 7
+        \[
+        \begin{bmatrix}
+        1 & 2 & 3 & 4 \\
+        5 & 6 & 7 & 8 \\
+        9 & 10 & 11 & 12 \\
+        13 & 14 & 15 & 16
+        \end{bmatrix}
+        \]
+        Items Visited: 1 -> 5 -> 9 -> 6 -> 7 -> done
+
+    \section{Chapter 5}
+      \subsection{Section 1}
+        \subsubsection{Problem 5}
+          \paragraph{a.}
+          \paragraph{b.}
+          \paragraph{c.}
+
+
+
+
+
+
+
+
+
+
+\end{document}

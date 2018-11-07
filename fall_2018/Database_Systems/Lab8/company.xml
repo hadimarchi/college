@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:company xmlns:tns="http://www.example.org/company" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/company jcompany.xsd ">
+  <tns:department departmentName="" departmentNumber="">
+    <tns:departmentManagerSSN>tns:departmentManagerSSN</tns:departmentManagerSSN>
+    <tns:departmentManagerStartDate>2001-01-01</tns:departmentManagerStartDate>
+    <tns:departmentLocation>tns:departmentLocation</tns:departmentLocation>
+  </tns:department>
+  <tns:employee>
+    <tns:employeeName>
+      <tns:firstName>tns:firstName</tns:firstName>
+      <tns:middleName>tns:middleName</tns:middleName>
+      <tns:lastName>tns:lastName</tns:lastName>
+    </tns:employeeName>
+    <tns:employeeSSN>tns:employeeSSN</tns:employeeSSN>
+    <tns:employeeSex>tns:employeeSex</tns:employeeSex>
+    <tns:employeeSalary>0</tns:employeeSalary>
+    <tns:employeeBirthDate>2001-01-01</tns:employeeBirthDate>
+    <tns:employeeDepartmentNumber>tns:employeeDepartmentNumber</tns:employeeDepartmentNumber>
+    <tns:employeeSupervisorSSN>tns:employeeSupervisorSSN</tns:employeeSupervisorSSN>
+    <tns:employeeAddress>
+      <tns:number>tns:number</tns:number>
+      <tns:street>tns:street</tns:street>
+      <tns:city>tns:city</tns:city>
+      <tns:state>tns:state</tns:state>
+    </tns:employeeAddress>
+    <tns:employeeWorksOn>
+      <tns:projectNumber>tns:projectNumber</tns:projectNumber>
+      <tns:hours>0.0</tns:hours>
+    </tns:employeeWorksOn>
+    <tns:employeeDependent>
+      <tns:dependentName>tns:dependentName</tns:dependentName>
+      <tns:dependentSex>tns:dependentSex</tns:dependentSex>
+      <tns:dependentBirthDate>2001-01-01</tns:dependentBirthDate>
+      <tns:dependentRelationship>tns:dependentRelationship</tns:dependentRelationship>
+    </tns:employeeDependent>
+  </tns:employee>
+  <tns:project>
+    <tns:projectName>tns:projectName</tns:projectName>
+    <tns:projectNumber>tns:projectNumber</tns:projectNumber>
+    <tns:projectLocation>tns:projectLocation</tns:projectLocation>
+    <tns:projectDepartmentNumber>tns:projectDepartmentNumber</tns:projectDepartmentNumber>
+    <tns:projectWorker>
+      <tns:SSN>tns:SSN</tns:SSN>
+      <tns:hours>0.0</tns:hours>
+    </tns:projectWorker>
+  </tns:project>
+</tns:company>

@@ -1,0 +1,82 @@
+Name: Hal DiMarchi
+
+
+stable partition:
+  Takes:
+    - list/sequence
+    - predicate (a condition elements can or cannot satisfy)
+    - arrange so that those that satisfy come first in a stable order (ones that don't should also be stable)
+
+  Divide and conquer:
+    top section right order, botttom section in order. Rotate bottom top with
+    top bottom. 'std::rotate'
+
+
+  Example:
+    def stable_partition(first, last, pred): # retuns first_not
+      size = last - first
+      if size == 0 return first;
+      if size == 1
+        if pred(*first)
+          return last;
+        return first;
+
+
+      mid = first + size/2
+      top_first_not = stable_partition(first, mid, pred)
+      bottom_first_not = stable_partition(mid, last, pred)
+      return rotate(top_first_not, mid, bottom_first_not) #rotate returns new first_not
+
+Hash tables:
+  Open Hashing:
+    Array Item: >
+                Array item is a bucket that can hold arbitrarily many key-value pairs.
+                Buckets are almost always singly linked lists - this is separate chaining.
+    Load factor: >
+                number of items/number of buckets. Want load factor to stay
+                well below 1.
+    - Higher load factor means less efficient searches.
+    - When load factor gets too large, rehash
+      - Insert is amortized constant
+
+  Closed Hashing:
+    Array Item: >
+               Array item holds single key-value pair.
+               Can also be marked as empty/deleted.
+    Hash Address: >
+               If hash address for a key is taken, look elsewhere.
+
+  Hash Functions:
+    Good:
+      1: It is computable quickly.
+      2: It's values are spread evenly among the possible values.
+      Sometimes:
+        3: Avoids patterned output when given patterned input.
+
+    Use of slow hashes:
+      Passwords: slow password hashing makes brute force attacks more difficult/take longer
+
+  CRUD ops:
+    Keys: More possible keys that locations in table
+      So: Possible that all keys will be given the same hash address
+      Separate chaining: >
+                         every key will be stored in the same bucket, so a
+                         search for a given key may require looking at every key
+                         in the table
+     Closed hasing: >
+                    Search  for a given key may require a probe of every item in the table.
+                    All CRUD ops will be Theta(n)
+
+  Probe Sequences:
+
+B+ Trees:
+
+Optimization:
+  Feasible solution: something that fits our constraints
+  Objective function: a function that takes a feasible solution and returns a
+                      number indicating how good it is
+  Optimal solution: feasible solution with the best value of the objective function
+                    Largest if we are doing maximization or smallest if we are
+                    doing minimization. Best value is optimum
+
+  Optimality: When the optimal solution is composed of optimal solutions to subproblems

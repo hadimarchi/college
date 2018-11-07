@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.homework.org/contacts" 
+	xmlns:tns="http://www.homework.org/contacts" 
+    elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            Company Schema (Element
+            Approach) - Prepared by Babak Hojabri
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="contacts">
+      <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                ROOT ELEMENT
+            </xsd:documentation>
+        </xsd:annotation>
+      <xsd:complexType>
+        <xsd:sequence>
+          
+          <!-- Contact 0:N -->
+          <xsd:element name="contact" type="tns:Contact"
+              minOccurs="0" maxOccurs="unbounded"/>
+          
+          <!-- Address 0:N -->
+          <xsd:element name="address" type="tns:Address"
+              minOccurs="0" maxOccurs="unbounded">
+            <!-- addressAddress UNIQUE -->
+              <xsd:unique name="addressAddressUnique">
+              	<xsd:selector xpath=""/>
+                <xsd:field xpath="tns:address"/>
+              </xsd:unique>
+           </xsd:element>
+
+           
+          <!-- Phone 0:N -->
+          <xsd:element name="phone" type="tns:Phone"
+              minOccurs="0" maxOccurs="unbounded">
+              <!-- phoneNumber UNIQUE -->
+              <xsd:unique name="phoneNumberUnique">
+              	<xsd:selector xpath=""/>
+                <xsd:field xpath="tns:number"/>
+              </xsd:unique>
+          </xsd:element>
+        </xsd:sequence>
+       </xsd:complexType>
+       
+       <!-- contactID KEY -->
+       <xsd:key name="contactIDKey">
+         <xsd:selector xpath="tns:contacts/tns:contact"/>
+         <xsd:field xpath="tns:ID"/>
+       </xsd:key>
+
+       <!-- contactName UNIQUE -->
+       <xsd:unique name="contactNameUnique">
+         <xsd:selector xpath="tns:contacts/tns:contact"/>
+         <xsd:field xpath="tns:name"/>
+        </xsd:unique>
+        
+       <!-- addressContactID KEY -->
+       <xsd:key name="addressContactIDKey">
+         <xsd:selector xpath="tns:contacts/tns:address"/>
+         <xsd:field xpath="tns:contactID"/>
+       </xsd:key>
+       
+       <!-- addressContactID FOREIGN KEY -->
+       <xsd:keyref name="addressContactIDKeyRef" refer="tns:contactIDKey">
+         <selector xpath="tns:contacts/tns:address"/>
+         <xsd:field xpath="tns:contactID"/>
+       </xsd:keyref>
+       
+       <!-- phoneContactID KEY -->
+       <xsd:key name="phoneContactIDKey">
+         <xsd:selector xpath="tns:contacts/tns:phone"/>
+         <xsd:field xpath="tns:contactID"/>
+       </xsd:key>
+       
+       <!-- phoneContactID FOREIGN KEY -->
+       <xsd:keyref name="phoneContactIDKeyRef" refer="tns:contactIDKey">
+         <selector xpath="tns:contacts/tns:phone"/>
+         <xsd:field xpath="tns:contactID"/>
+       </xsd:keyref>
+      
+    </xsd:element>
+   <!-- Contact Attributes -->
+   <xsd:complexType name="Contact">
+       <xsd:sequence>
+         <xsd:element name="ID" type="xsd:int"></xsd:element>
+         <xsd:element name="name" type="tns:nameType"></xsd:element>
+       	<xsd:element name="phone" type="tns:Phone" minOccurs="2" maxOccurs="unbounded"/>
+       	<xsd:element name="address" type="tns:addressType" minOccurs="2" maxOccurs="unbounded"/>
+       </xsd:sequence>
+    </xsd:complexType>
+    
+   <!-- Address Attributes -->
+   <xsd:complexType name="Address">
+     <xsd:sequence>
+       <xsd:element name="contactID" type="xsd:int"></xsd:element>
+       <xsd:element name="address" type="tns:addressType"></xsd:element>
+     </xsd:sequence>
+    </xsd:complexType>
+   
+   <!-- Phone Attributes -->
+   <xsd:complexType name="Phone">
+     <xsd:sequence>
+       <xsd:element name="contactID" type="xsd:int"></xsd:element>
+       <xsd:element name="number" type="xsd:string"></xsd:element>
+     </xsd:sequence>
+   </xsd:complexType>
+   
+
+    
+   <!-- nameType GLOBAL TYPE -->
+    <xsd:complexType name="nameType">
+        <xsd:sequence>
+            <xsd:element name="firstName" type="xsd:string" />
+            <xsd:element name="lastName" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <!-- addressType GLOBAL TYPE -->
+    <xsd:complexType name="addressType">
+        <xsd:sequence>
+            <xsd:element name="number" type="xsd:string" />
+            <xsd:element name="street" type="xsd:string" />
+            <xsd:element name="city" type="xsd:string" />
+            <xsd:element name="state" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+ </xsd:schema>
