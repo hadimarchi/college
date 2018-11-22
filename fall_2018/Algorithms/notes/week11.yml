@@ -1,0 +1,56 @@
+Dynamic Programming:
+  Bottom up: iterative from start to finish
+    AKA: Tabulation
+    Features:
+      - harder to think
+      - harder to code
+      - faster, can directly access previous states from table
+      - solves all subproblems even if not needed for ultimate solution
+        - generally faster at solving all than top down
+      - entries  filled one by one
+
+  Top down: recursion, starting at biggest and going back
+    AKA: Memoization
+    Features:
+      - easier to think
+      - easier to code
+      - slower, more calls and return statements
+      - only solves required subproblems
+      - table entries filled by demand only
+
+Greedy Technique:
+  Greedy: make what looks like the best choice until we are done
+    Choice will be:
+      - feasible (satisfies constraints of problem)
+      - Locally optimal (the best local choice among all feasible options)
+      - Irrevocable
+
+  Traits:
+    - easy to write
+    - often give incorrect results
+    - tricky to prove they work
+      - Matroid Theory
+    - fast when they work
+
+
+  Minimum Spanning Trees:
+     - subgraph of a graph that has no cycles (is a tree) and uses the edges
+       that sum to the minimum amount available for any subgraph that includes
+       all verticess
+
+    Prim's Algorithm:
+      - way to make MST's
+      HOW:
+        - start at vertex, becomes root of tree
+        - of all edges that add another vertex to our tree (does not create cycle), pick the one
+          with the smallest weight.
+        - continue until all vertices have been visited/added to tree
+
+    Kruskell's Algorithm:
+      - way to make MST's
+      HOW:
+        - pick smallest edges anywhere on graph that connects unconnected vertices
+          without creating cycle
+          - makes multiple trees that connect to make MST for the whole graph
+
+    

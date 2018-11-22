@@ -7,8 +7,12 @@
 \usepackage{lastpage}%
 \usepackage[export]{adjustbox}
 \usepackage{amsmath}
+\usepackage{tabto}
 \usepackage[top=1in, bottom=1.25in, left=1.00in, right=1.00in]{geometry}
 
+\newcommand\ttab[0]{\tabto{5mm}}
+\newcommand\tttab[0]{\tabto{1cm}}
+\newcommand\mathtab[0]{$\-$ $\-$ $\-$ $\-$ $\-$ $\-$ $\-$ $\-$}
 \begin{document}%
 \normalsize%
 \begin{titlepage}
@@ -70,8 +74,80 @@
       \subsection{Section 1}
         \subsubsection{Problem 5}
           \paragraph{a.}
+            $T(n) = 4T(n/2) + n, T(1)=1$\\
+            \ttab Using the Master Theorem:
+            \tttab $a=4, b=2, c=1, k=1$
+            \tttab Note, $ 4>2^1$ thus $a>b^k$ and $O(T(n)) = O(n^{\log_2{4}}) = O(n^2)$
           \paragraph{b.}
+            $T(n) = 4T(n/2)+n^2, T(1)=1$
+            \ttab Using the Master Theorem:
+            \tttab $a=4, b=2, c=1, k=2$
+            \tttab Note, $4=2^2$ thus $a=b^k$ and $O(T(n)) = O(n^2\log{n})$
           \paragraph{c.}
+          $T(n) = 4T(n/2) + n^3, T(1) = 1$\\
+          \ttab Using the Master Theorem:
+          \tttab $a=4, b=2, c=1, k=3$
+          \tttab Note, $4<2^3$ thus $a<b^k$ and $O(T(n)) = O(n^3)$
+    \subsection{Section 2}
+      \subsubsection{Problem 11}
+        Start by selecting a random bolt, and then iterate through the nuts, checking if each nut
+        fits. If it is too small, place it in one pile. If it is too large, put it in another.
+        Do this until all nuts but one are in one pile or the other and one nut is with the bolt.
+        Select your next bolt and check to see if the nut on the bolt just picked is too large or too small for it. If it is too small, check each nut in the pile of nuts that were too large for the bolt. If it is too large, then the other pile. When checking these nuts, again split the nuts into two seperate piles, creating a total of 3 piles.
+        To extend this, every time a new bolt is selected check it first against the nuts that have found their bolt, checking the pile of nuts that is between the last bolt whose nut the new bolt is too large for and the first bolt whose nut the new bolt is too small for.
+    \subsection{Section 3}
+      \subsubsection{Problem 5}
+        \paragraph{a. Preorder}
+        \ttab abdecf
+        \paragraph{b. Inorder}
+        \ttab dbeacf
+        \paragraph{c. Postorder}
+        \ttab debfca
+  \section{Chapter 6}
+    \subsection{Section 1}
+      \subsubsection{Problem 8}
+        Split pairs into a single list of numbers, marking which is a 1st element of a pair, and which is a 2nd. Sort the list, then traverse it.  Keep track of a current count and a max count, both starting at 0. Add 1 to the current count each time a starting element is arrived at. Each time an ending element is arrived at, first check to see if the current count is greater than the current max count. If it is, replace the max count with he current count. Then subtract 1 from the current count.
+
+    \subsection{Section 6}
+      \subsubsection{Problem 6}
+        Algorithm: \\
+          first, second = 0 \\
+          max\_product = 0 \\
+          if n is even:\\
+          \ttab  first = n/2 \\
+          \ttab  second = first\\
+          \ttab  max\_product = first * second\\
+          if n is odd:\\
+            \ttab first = floor(n/2) \\
+            \ttab second = ceiling(n/2) \\
+            \ttab max\_product = first * second \\
+
+      Efficiency class = O(1) \\
+      Works because of all pairs that sum to n, the pair that are equal or closest
+      to it will always multiply to produce the greatest product.\\
+      Consider:\\
+      \ttab  $first + second = n, second=n-first$
+      \ttab  $first * second = product = first * n-first = first(n) - first^2$\\
+      This function produces a parabola whose maximum is approximately $n/2$
+\section{Chapter 7}
+  \subsection{Section 1}
+    \subsubsection{Problem 6}
+      If the vertex u is an ancestor of the vertex v then
+      it is visited first in a preorder traversel and second in a postorder traversel,
+      which can be stated as $preorder(u) <= preorder(v)$ and $postorder(u) >= postorder(v)$.
+      Thus we can traverse this tree in both ways, which is an O(n) operation, and record when u and v are visited.
+      We can then compare these values in constant time.
+
+
+
+
+
+
+
+
+
+
+
 
 
 

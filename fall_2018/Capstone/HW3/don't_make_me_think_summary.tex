@@ -6,6 +6,7 @@
 \usepackage{textcomp}%
 \usepackage{lastpage}%
 \usepackage[export]{adjustbox}
+\usepackage{wrapfig}
 \usepackage[top=1in, bottom=1.25in, left=1.00in, right=1.00in]{geometry}
 %
 \title{A Summary of Don't Make Me Think}%
@@ -88,7 +89,11 @@ This chapter is summarized by ``Three Facts of Life''.
       \item ``We're good at it''
     \end{enumerate}
   \subsubsection{Fact 2: We Don't Make Optimal Choices. We Satisfice.}
-    We choose the first reasonable option (satisficing), not the best one. \newline
+  \begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+    \includegraphics[width=0.35\textwidth]{maximizer1}
+  \end{wrapfigure}
+    We choose the first reasonable option (satisficing), not the best one (maximizing). \newline
     According to Krug we do this for four reasons:
     \begin{enumerate}
       \item ``We're usually in a hurry''
@@ -96,6 +101,7 @@ This chapter is summarized by ``Three Facts of Life''.
       \item ``Weighing options might not improve our chances''
       \item ``Guessing is more fun''
     \end{enumerate}
+
   \subsubsection{Fact 3: We Don't Figure Out How Things Work, We Muddle Through.}
     In other words we don't go out of our way to come to an accurate understanding
     about how the thing we're using works. We rely on instincts, associations, and
@@ -118,18 +124,18 @@ This chapter is summarized by ``Three Facts of Life''.
     \item Create effective visual hierarchies
     \item Break pages up into clearly defined areas
     \item Make it obvious what is clickable
-    \item Keep the \emph{noise} down to a dull roar. \emph{Noise} refers to
+    \item Keep the \textbf{noise} down to a dull roar. \textbf{Noise} refers to
       \begin{itemize}
         \item Shouting: when everything on a page is loud and clammoring for your attention.
         \item Disorganization: Why is this here and that there?
         \item Clutter: If there's too much assume everything is visual clutter until proven otherwise.
       \end{itemize}
-    \item Format text to support scanning
+    \item Format text to \textbf{support scanning}
   \end{enumerate}
   \subsubsection{Needless Words}
   An effective way of reducing visual noise is to get rid of needless words.
   Words that are needless can add fluff to a sentence or concern something nobody cares
-  enough to readabout. \newline
+  enough to read about. \newline
   A special case of needless words is \textbf{Happy Talk}. Happy Talk is something like:\newline
   ``Hello and welcome to my website, I am very happy you are here!!!''. Happy talk must be removed.
   It doesn't do anything except annoy and incovenience users. Happy talk will actually make people less happy.
@@ -137,13 +143,13 @@ This chapter is summarized by ``Three Facts of Life''.
 \section{Things You Need to Get Right}%
 \label{sec:Things You Need to Get Right}%
   \subsection{Web Navigation}
-    \paragraph{Purpose of Navigation}
+    \paragraph{Purpose of Navigation\\}
     Navigation exists to:
     \begin{itemize}
-      \item Help us find what we're looking for.
-      \item Tell us where we are.
-      \item Tell us what is here.
-      \item Give us confidence in the people behind the site.
+      \item Help us \textbf{find what we're looking for}.
+      \item Tell us \textbf{where we are}.
+      \item Tell us \textbf{what is here}.
+      \item \textbf{Give us confidence} in the people behind the site.
     \end{itemize}
   \subsubsection{Key Navigation Elements}
     It is important to note that websites should be organized along some sort of hierarchy
@@ -154,10 +160,10 @@ This chapter is summarized by ``Three Facts of Life''.
       Global Navigation is the set of navigation elements that appear on every
       page of a website. It is composed of four elements:
       \begin{enumerate}
-        \item Site ID: The name of the site. Tells us what website we are on. This is the top of our hierarchy.
-        \item Utilities: Things that can help us use the site, such as an option to sign in, or contact the company.
-        \item Sections: Sections in the global navigation represent the primary level of the site hierarchy.
-        \item Search: This is where a user can go to search for something. Because it is in the global navigation a user
+        \item \textbf{Site ID}: The name of the site. Tells us what website we are on. This is the top of our hierarchy.
+        \item \textbf{Utilities}: Things that can help us use the site, such as an option to sign in, or contact the company.
+        \item \textbf{Sections}: Sections in the global navigation represent the primary level of the site hierarchy.
+        \item \textbf{Search}: This is where a user can go to search for something. Because it is in the global navigation a user
                       can always jump to it if they have given up on browsing. In my mind this turns a potential
                       abandoment of the site into a search process.
       \end{enumerate}
@@ -196,7 +202,7 @@ This chapter is summarized by ``Three Facts of Life''.
       \item Where am I in the scheme of things? (``You are here'' indicators.)
       \item How can I search? (Search)
     \end{itemize}
-    Each page on your website should answer these questions.
+    \emph{Each} page on your website should answer these questions.
 
 
 %
