@@ -5,4 +5,4 @@ SELECT 	 name as team,
         TEAM.state as team_state,
         TEAM.color as team_color,
         (select COUNT(*) from FAN where FAN.favorite_team = TEAM.name) as Fans
-        FROM TEAM inner join COACH on COACH.team = TEAM.name;
+        FROM TEAM inner join COACH on COACH.team = TEAM.namePLAYER;

@@ -1,0 +1,29 @@
+List:
+  - What will the major pieces be?
+  - What platforms (OS, hardware, web browser)
+  - Which pieces will talk to each other and how.
+  - What programming language will each piece be written in
+  - Describe overall architecture
+  - Framework?
+  - Where to get code? Mine? Others?
+  - TESTING?????
+
+Platforms:
+  - Web + Electron + PWA
+Pieces:
+  Frontend: JS & npm
+    - AWS static hosted html/js
+    - talks to backend via ajax requests
+    - vue js framework
+    - leaflet for maps
+    - plotly for charts
+    - jStat for stats
+
+  Backend: PYTHON & PyPi
+    - Webapp
+      - Flask zappafied
+        - Document store (Dynamo DB)
+        - CRUD datasets
+
+Testing:
+  - pytest
