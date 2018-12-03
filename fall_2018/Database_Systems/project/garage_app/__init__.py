@@ -1,9 +1,9 @@
 from flask import Flask, render_template, current_app, g
-from db import garageDB
+from db import mysqlDB
 
 
 app = Flask(__name__)
-garage_db = garageDB(app)
+garage_db = mysqlDB(app, 'db.ini')
 
 
 @app.route('/')
