@@ -42,22 +42,22 @@ public:
   HuffCode(HuffCode &) = default;
   HuffCode & operator=(const HuffCode &) = default;
 public:
-
-    void setWeights(const std::unordered_map<char, int> & theweights);
-
-    std::string encode(const std::string & text) const;
-
-    std::string decode(const std::string & codestr) const;
+  void setWeights(const std::unordered_map<char, int> & theweights);
+  std::string encode(const std::string & text) const;
+  std::string decode(const std::string & codestr) const;
 
 
 private:
+  void initNodeHeap(const std::unordered_map<char, int> &);
   void generateTree();
   void generateCode();
+
+private:
   node_ptr get_and_pop_node();
   void create_and_insert_internal_node(node_ptr left, node_ptr right);
-  void traverse(node_ptr node, std::string code);
   void traverse_left(node_ptr node, std::string code);
   void traverse_right(node_ptr node, std::string code);
+  void traverse(node_ptr node, std::string code);
 
 
 private:

@@ -29,7 +29,14 @@ using std::vector;
 
 
 bool pair_second_comp(const node_ptr one, const node_ptr two){
-  return (*one).weight > (*two).weight;
+  return one->weight > two->weight;
+}
+
+void HuffCode::initNodeHeap(const unordered_map<char, int> & weights){
+  vector<node> nodes(weights.begin(), weights.end());
+  for (auto i = 0; i<nodes.size(); ++i){
+    node_heap.push_back(make_shared<node>(nodes[i]));
+  }
 }
 
 node_ptr HuffCode::get_and_pop_node(){
@@ -46,7 +53,15 @@ void HuffCode::create_and_insert_internal_node(node_ptr left, node_ptr right){
   node_heap.push_back(internal_node);
 }
 
-
+void HuffCode::generateTree(){
+  sort(node_heap.begin(), node_heap.end(), pair_second_comp);
+  while(node_heap.size()>1){
+    auto first_node = get_and_pop_node();
+    auto second_node = get_and_pop_node();
+    create_and_insert_internal_node(first_node, second_node);
+    sort(node_heap.begin(), node_heap.end(), pair_second_comp);
+  }
+}
 
 void HuffCode::traverse_left(node_ptr node, string code){
   code.push_back('0');
@@ -63,9 +78,8 @@ void HuffCode::traverse(node_ptr node, string code){
     if (code == ""){code="0";}
     huff_code[node->key] = code;
     reverse_code[code] = node->key;
-    cout<<node->key<<" codes as "<<code<<endl;
   }
-  if (node->left!=NULL){ traverse_left(node->left, code);}
+  if (node->left!=NULL){traverse_left(node->left, code);}
   if (node->right!=NULL){traverse_right(node->right, code);}
 }
 void HuffCode::generateCode(){
@@ -73,28 +87,12 @@ void HuffCode::generateCode(){
     traverse(node_heap.front(), code);
 }
 
-void HuffCode::generateTree(){
-  sort(node_heap.begin(), node_heap.end(), pair_second_comp);
-  while(node_heap.size()>1){
-    auto first_node = get_and_pop_node();
-    auto second_node = get_and_pop_node();
-    create_and_insert_internal_node(first_node, second_node);
-    sort(node_heap.begin(), node_heap.end(), pair_second_comp);
-  }
-}
-
-void HuffCode::setWeights(const unordered_map<char, int> & theweights)
-{
-    vector<node> nodes(theweights.begin(), theweights.end());
-    for (auto i = 0; i<nodes.size(); i++){
-      node_heap.push_back(make_shared<node>(nodes[i]));
-    }
-    generateTree();
-    if (node_heap.size() == 1){
+void HuffCode::setWeights(const unordered_map<char, int> & weights){
+    initNodeHeap(weights);
+    if (node_heap.size()){
+      generateTree();
       generateCode();
-    }
-
-
+  }
 }
 
 
@@ -104,7 +102,7 @@ string HuffCode::encode(const string & text) const
     string code;
     for(const char c:text){
       code = huff_code.find(c)->second;
-      encoded+=code;
+      encoded.append(code);
     }
     return encoded;
 }
@@ -114,13 +112,14 @@ string HuffCode::decode(const string & codestr) const
 {
     string decoded;
     string partial_code;
+    auto code = reverse_code.end();
 
     for (const char c:codestr){
       partial_code.push_back(c);
-      auto code = reverse_code.find(partial_code);
+      code = reverse_code.find(partial_code);
       if (code != reverse_code.end()){
         decoded.push_back(code->second);
-        partial_code = "";
+        partial_code.clear();
       }
     }
     return decoded;
