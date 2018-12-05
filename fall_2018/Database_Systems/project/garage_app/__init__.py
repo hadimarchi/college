@@ -4,6 +4,7 @@ from db import mysqlDB
 
 app = Flask(__name__)
 garage_db = mysqlDB(app, 'db.ini')
+garage_db.db.create_all()
 
 
 @app.route('/')
