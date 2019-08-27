@@ -1,0 +1,39 @@
+Date: 08/27/2019
+Title: Intro to Circuit Theory
+Notes:
+  Goal: Determine mathematical model that will
+    - Calculate voltage at any point in the circuit relative to any other point
+    - Calculate current in any circuit branch
+  Assumptions:
+    - All circuit effects occur instantly in all components
+    - The wavelength of the applied signals is larger than the hardware
+
+  Laws:
+    Ohm's Law: V = IR
+    KCL: Current at any one point is zero (I think)
+    KVL: Sum of voltage around loop must be zero
+    Superposition: If a system has more than one source we can break the sytem up into the effects of each individual source and sum them
+
+  Technology:
+    Topology: systematic application of KCL and KVL in order to solve complex circuits
+              Mesh Analysis
+              Nodal Analysis
+    Thevenin's Theorem: Simplify to terminal outputs (I think)
+    Source Transform: Voltage source to current source
+
+  Digital Logic:
+    Combinational: Output is a function of current inputs
+    Sequential: Output is a function of the inputs and current output
+  Chips:
+    Standard: Standard configuration that represents a fix function. Wasteful of space but cheap.
+    Programmable: Reconfigurable (by code written by user). Not optimized for speed/power/area compared to custom
+    Custom/AISC: Fixed but complex, efficient functionality. Fixed functionality is user specified pre-production. Higher cost.
+
+  Moore's Law: Number of transitors on a chip doubles every 1.5 to 2 years. Still true but slowing.
+
+  Technology Node Size: measured in nm, length/width of channel(n-channel) between source and drain regions in a transistor.
+    Drain Region Voltage: Vgs
+    Output (Around the n-gate): Vo
+    Transistor-Inverter: input in, !input out
+
+    Smaller: Higher integration density, higher speed, potentially lower power
